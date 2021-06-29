@@ -1,0 +1,117 @@
+div(class="toggle toggle_culture--third_imperium")
+  h2 Third Imperium Upbringing
+  p(class="rules") See chapter 1 of the <span class="ref">Traveller Core Rulebook</span> for how to create a Traveller raised in the Third Imperium.
+
+div(class="toggle toggle_culture--aslan_hierate")
+  h2 Aslan Hierate Upbringing
+
+  div(class="aslan_upbringing")
+    label(class="aslan_clan") Clan Type
+    select(name="attr_aslan_clan" class="aslan_clan")
+      option(value="minor" selected) Minor
+      option(value="major") Major
+
+    label(class="aslan_inheritance") Family Inheritance
+    select(name="attr_aslan_inheritance" class="aslan_inheritance")
+      option(value="first" selected) First Son / Eldest Daughter
+      option(value="second") Second Son / Middle Daughter
+      option(value="third") Third Son / Youngest Daughter
+
+    label(class="aslan_ancestral_ter") Ancestral Territory
+    input(type="number" min="0" value="0" name="attr_aslan_ancestral_ter" class="aslan_ancestral_ter")
+
+    label(class="aslan_rite_of_passage") Rite of Passage
+    span(class="aslan_rite_of_passage")
+      input(type="number" min="0" max="6" value="0" name="attr_aslan_rite_of_passage")
+      +roll("Aslan Rite of Passage", "rop", "aslan_rite_of_passage")
+
+  p(class="rules") See chapter 2 of <span class="ref">Aliens of Charted Space: Volume 1</span> for how to create an Aslan Traveller raised in the Aslan Hierate.
+
+div(class="toggle toggle_culture--vargr_extents")
+  h2 Vargr Extents Upbringing
+  p(class="rules") See chapter 13 of <span class="ref">Aliens of Charted Space: Volume 1</span> for how to create a Vargr Traveller raised in the Vargr Extents.
+
+h2 Recent Events
+
+div(class="sepitems")
+  fieldset(class="repeating_events")
+    div(class="recent_event")
+      label(class="event_name") Name
+      input(type="text" name="attr_event_name" class="event_name")
+
+      label(class="event_date") Date
+      input(type="text" name="attr_event_date" class="event_date")
+
+      label(class="event_location") Location
+      input(type="text" name="attr_event_location" class="event_location")
+
+      label(class="event_details") Details
+      textarea(name="attr_event_details" class="event_details")
+
+h2 Allies, Contacts, Enemies, and Rivals
+
+div(class="sepitems")
+  fieldset(class="repeating_npcs")
+    div(class="npc")
+      label(class="npc_name") Name
+      input(type="text" name="attr_npc_name" class="npc_name")
+
+      label(class="npc_location") Location
+      input(type="text" name="attr_npc_location" class="npc_location")
+
+      label(class="npc_type") Type
+      select(name="attr_npc_type" class="npc_type")
+        option(value="ally" selected) Ally
+        option(value="contact") Contact
+        option(value="rival") Rival
+        option(value="enemy") Evemy
+
+      label(class="npc_affinity") Affinity
+      input(type="number" min="0" max="6" value="0" name="attr_npc_affinity" class="npc_affinity")
+
+      label(class="npc_enmity") Enmity
+      input(type="number" min="-6" max="0" value="0" name="attr_npc_enmity" class="npc_enmity")
+
+      label(class="npc_power") Power
+      input(type="number" min="0" max="6" value="0" name="attr_npc_power" class="npc_power")
+
+      label(class="npc_influence") Influence
+      input(type="number" min="0" max="6" value="0" name="attr_npc_influence" class="npc_influence")
+
+      label(class="npc_special_characteristics") Special characteristics
+      textarea(name="attr_npc_characteristics" class="npc_special_characteristics")
+
+      label(class="npc_details") Details
+      textarea(name="attr_npc_details" class="npc_details")
+
+h2 Terms
+
+div(class="sepitems")
+  fieldset(class="repeating_terms")
+    div(class="term")
+      label(class="term_age") Age
+      span(class="term_age")
+        input(type="number" min="14" value="18" name="attr_term_age_start")
+        span to
+        input(type="number" min="18" value="22" name="attr_term_age_end")
+
+      label(class="term_career") Career
+      input(type="text" name="attr_term_career" class="term_career")
+
+      label(class="term_rank") Rank
+      span(class="term_rank")
+        input(type="number" min="0" value="0" name="attr_term_rank_start")
+        span to
+        input(type="number" min="0" value="0" name="attr_term_rank_end")
+
+      label(class="term_survived") Survived?
+      input(type="checkbox" name="attr_term_survived" class="term_survived")
+
+      label(class="term_advanced") Advanced?
+      input(type="checkbox" name="attr_term_advanced" class="term_advanced")
+
+      label(class="term_mustering_out") Mustering out benefits
+      textarea(name="attr_term_mustering_out" class="term_mustering_out")
+
+      label(class="term_details") Details
+      textarea(name="attr_term_details" class="term_details")

@@ -1,0 +1,29 @@
+h2 Experience
+
+p TODO
+
+h2 Skills
+
+div(class="skills_top")
+  label(class="joat") Jack of All Trades
+  input(type="number" min="0" max="3" value="0" name="attr_joat" class="joat")
+
+  label(class="untrained_dm") Untrained Skill DM
+  input(type="hidden" name="attr_untrained_dm")
+  span(class="untrained_dm")
+    input(type="number" disabled="true" value="@{untrained_dm}" name="attr_untrained_dm_display")
+    +roll("Untrained skill", "untrained", "untrained_dm", "+@{characteristic_rollmod}")
+
+div(class="narrowitems")
+  fieldset(class="repeating_skills")
+    div(class="skill")
+      label(class="skill_name") Name
+      input(type="text" name="attr_skill_name" class="skill_name")
+
+      label(class="skill_specialism") Specialism
+      input(type="text" name="attr_skill_specialism" class="skill_specialism")
+
+      label(class="skill_level") Level
+      span(class="skill_level")
+        input(type="number" min="0" value="0" name="attr_skill_level")
+        +roll("@{skill_name} (@{skill_specialism})", "skill", "skill_level", "+@{characteristic_rollmod}")

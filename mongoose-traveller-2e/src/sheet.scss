@@ -1,325 +1,380 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 13px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #000;
-}
-
-.toggle {
-    display: none;
-}
-
-.toggle--species[value="human"] ~ .toggle_species--human,
-.toggle--species[value="human"] ~ * .toggle_species--human,
-.toggle--species[value="aslan"] ~ .toggle_species--aslan,
-.toggle--species[value="aslan"] ~ * .toggle_species--aslan,
-.toggle--species[value="vargr"] ~ .toggle_species--vargr,
-.toggle--species[value="vargr"] ~ * .toggle_species--vargr,
-.toggle--culture[value="third_imperium"] ~ .toggle_culture--third_imperium,
-.toggle--culture[value="third_imperium"] ~ * .toggle_culture--third_imperium,
-.toggle--culture[value="aslan_hierate"] ~ .toggle_culture--aslan_hierate,
-.toggle--culture[value="aslan_hierate"] ~ * .toggle_culture--aslan_hierate,
-.toggle--culture[value="vargr_extents"] ~ .toggle_culture--vargr_extents,
-.toggle--culture[value="vargr_extents"] ~ * .toggle_culture--vargr_extents
-{
-    display: revert;
-}
-
-.tab {
-    display: none;
-}
-
-#tab--biography:checked ~ .tab--biography,
-#tab--skills:checked ~ .tab--skills,
-#tab--inventory:checked ~ .tab--inventory
-{
-    display: block;
-}
-
-h2 {
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 18px;
-    text-decoration: none;
-}
-* h2:not(:first-child) {
-    margin-top: 16px;
-    padding-top: 8px;
-    border-top: 1px solid #ccc;
-}
-
-.charactersheet label {
-    font-weight: bold;
-    color: #333;
-    text-transform: uppercase;
-    font-size: 9px;
-    line-height: 12px;
-    margin: 8px 0 0 8px;
-}
-.charactersheet input, .charactersheet select, .charactersheet textarea {
-    margin: 4px;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 1px solid #ccc;
-    border-radius: 0;
-    background-color: #f9f9f9;
-    width: 100%;
-    height: 30px;
-}
-.charactersheet button[type="roll"] {
-    height: 24px;
-}
-
-.character-header, .characteristic, .aslan_upbringing, .recent_event, .term, .npc, .skills_top, .skill {
+@mixin grid {
     display: grid;
     padding-right: 8px;
     grid-column-gap: 8px;
 }
 
-.character-header {
-    grid-template-areas:
-        "nameF   nameF      nameF    ageL     radsL"
-        "nameF   nameF      nameF    ageF     radsF"
-        "genderL homeworldL speciesL cultureL ."
-        "genderF homeworldF speciesF cultureF cultureF";
-}
-.character-header label.character_name { grid-area: nameL; }
-.character-header input.character_name { grid-area: nameF; font-size: 20px; }
-.character-header label.character_age { grid-area: ageL; }
-.character-header input.character_age { grid-area: ageF; }
-.character-header label.character_rads { grid-area: radsL; }
-.character-header input.character_rads { grid-area: radsF; }
-.character-header label.character_gender { grid-area: genderL; }
-.character-header input.character_gender { grid-area: genderF; }
-.character-header label.character_homeworld { grid-area: homeworldL; }
-.character-header input.character_homeworld { grid-area: homeworldF; }
-.character-header label.character_species { grid-area: speciesL; }
-.character-header select.character_species { grid-area: speciesF; }
-.character-header label.character_culture { grid-area: cultureL; }
-.character-header select.character_culture { grid-area: cultureF; }
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
-.columns {
-    display: grid;
-    grid-template-columns: min-content auto;
-    grid-column-gap: 16px;
-    margin-top: 32px;
-}
-.column {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 0 8px 8px 8px;
+.charactersheet {
+    $text-color: #000;
+    $border-color: #ccc;
+    $selected-text-color: #730b0b;
+    $selected-border-color: #730b0b;
+    $input-background: #f9f9f9;
+    $incompatibility-text-color: #ff0000;
+
+    font-size: 13px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: $text-color;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .toggle {
+        display: none;
+    }
+
+    .toggle--species[value="human"] ~ .toggle_species--human,
+    .toggle--species[value="human"] ~ * .toggle_species--human,
+    .toggle--species[value="aslan"] ~ .toggle_species--aslan,
+    .toggle--species[value="aslan"] ~ * .toggle_species--aslan,
+    .toggle--species[value="vargr"] ~ .toggle_species--vargr,
+    .toggle--species[value="vargr"] ~ * .toggle_species--vargr,
+    .toggle--culture[value="third_imperium"] ~ .toggle_culture--third_imperium,
+    .toggle--culture[value="third_imperium"] ~ * .toggle_culture--third_imperium,
+    .toggle--culture[value="aslan_hierate"] ~ .toggle_culture--aslan_hierate,
+    .toggle--culture[value="aslan_hierate"] ~ * .toggle_culture--aslan_hierate,
+    .toggle--culture[value="vargr_extents"] ~ .toggle_culture--vargr_extents,
+    .toggle--culture[value="vargr_extents"] ~ * .toggle_culture--vargr_extents
+    {
+        display: revert;
+    }
+
+    .tab {
+        display: none;
+        padding-left: 16px;
+    }
+
+    #tab--biography:checked ~ * .tab--biography,
+    #tab--skills:checked ~ * .tab--skills,
+    #tab--inventory:checked ~ * .tab--inventory
+    {
+        display: block;
+    }
+
+    h2 {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 18px;
+        text-decoration: none;
+    }
+    * h2:not(:first-child) {
+        margin-top: 16px;
+        padding-top: 8px;
+    }
+
+    label {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 9px;
+        line-height: 12px;
+        margin: 8px 0 0 8px;
+    }
+    input, select, textarea {
+        margin: 4px;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 1px solid $border-color;
+        border-radius: 0;
+        background-color: $input-background;
+        width: 100%;
+        height: 30px;
+    }
+    button[type="roll"] {
+        height: 24px;
+    }
+
+    .sepitems {
+        .repcontainer > .repitem {
+            margin-top: 16px;
+            padding-top: 8px;
+            border-top: 1px solid $border-color;
+        }
+
+        .repcontainer > .repitem:first-child {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 8px;
+        }
+    }
+    .narrowitems {
+        .repcontainer > .repitem:not(:first-child) label {
+            display: none;
+        }
+    }
+
+    .character-header {
+        @include grid;
+
+        grid-template-areas:
+            "nameF   nameF      nameF    ageL     radsL"
+            "nameF   nameF      nameF    ageF     radsF"
+            "genderL homeworldL speciesL cultureL ."
+            "genderF homeworldF speciesF cultureF cultureF";
+
+        label.character_name { grid-area: nameL; }
+        input.character_name { grid-area: nameF; font-size: 20px; }
+        label.character_age { grid-area: ageL; }
+        input.character_age { grid-area: ageF; }
+        label.character_rads { grid-area: radsL; }
+        input.character_rads { grid-area: radsF; }
+        label.character_gender { grid-area: genderL; }
+        input.character_gender { grid-area: genderF; }
+        label.character_homeworld { grid-area: homeworldL; }
+        input.character_homeworld { grid-area: homeworldF; }
+        label.character_species { grid-area: speciesL; }
+        select.character_species { grid-area: speciesF; }
+        label.character_culture { grid-area: cultureL; }
+        select.character_culture { grid-area: cultureF; }
+    }
+
+    .columns {
+        display: grid;
+        grid-template-columns: max-content auto;
+        margin-top: 32px;
+    }
+    .column--characteristics {
+        border-right: 1px solid $border-color;
+    }
+
+    .characteristic {
+        @include grid;
+
+        grid-template-areas:
+            "name name name name"
+            "curL maxL dmL  ."
+            "curF maxF dmS  dmS";
+        grid-column-gap: 4px;
+        margin-top: 16px;
+        padding-top: 8px;
+        padding-right: 8px;
+        border-top: 1px solid $border-color;
+
+        h3 {
+            grid-area: name;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 9px;
+            line-height: 12px;
+        }
+        label.cur { grid-area: curL; }
+        input.cur { grid-area: curF; }
+        label.max { grid-area: maxL; }
+        input.max { grid-area: maxF; }
+        label.dm { grid-area: dmL; }
+        span.dm { grid-area: dmS; }
+    }
+    .characteristic--first {
+        border-top: none;
+        padding-top: 0;
+        margin-top: 8px;
+    }
+
+    .tab_buttons {
+        display: flex;
+        border-bottom: 1px solid $border-color;
+
+        label {
+            text-align: right;
+            border-right: 1px solid $border-color;
+            font-size: 14px;
+            padding: 8px;
+        }
+    }
+    #tab--biography:checked ~ * label[for="tab--biography"],
+    #tab--skills:checked ~ * label[for="tab--skills"],
+    #tab--inventory:checked ~ * label[for="tab--inventory"]
+    {
+        color: $selected-text-color;
+        border-bottom: 5px solid $selected-border-color;
+    }
+
+    .aslan_upbringing {
+        @include grid;
+
+        grid-template-areas:
+            "clanL inheritL anterL ropL"
+            "clanF inheritF anterF ropS";
+
+        label.aslan_clan { grid-area: clanL; }
+        select.aslan_clan { grid-area: clanF; }
+        label.aslan_inheritance { grid-area: inheritL; }
+        select.aslan_inheritance { grid-area: inheritF; }
+        label.aslan_ancestral_ter { grid-area: anterL; }
+        input.aslan_ancestral_ter { grid-area: anterF; }
+        label.aslan_rite_of_passage { grid-area: ropL; }
+        span.aslan_rite_of_passage { grid-area: ropS; }
+    }
+
+    .recent_event {
+        @include grid;
+
+        grid-template-areas:
+            "nameL    dateL    locationL"
+            "nameF    dateF    locationF"
+            "detailsL .        ."
+            "detailsF detailsF detailsF";
+
+        label.event_name { grid-area: nameL; }
+        input.event_name { grid-area: nameF; }
+        label.event_date { grid-area: dateL; }
+        input.event_date { grid-area: dateF; }
+        label.event_location { grid-area: locationL; }
+        input.event_location { grid-area: locationF; }
+        label.event_details { grid-area: detailsL; }
+        textarea.event_details { grid-area: detailsF; }
+    }
+
+    .npc {
+        @include grid;
+
+        grid-template-areas:
+            "nameL     nameL    locationL locationL  typeL"
+            "nameF     nameF    locationF locationF  typeF"
+            "affinityL enmityL  powerL    influenceL ."
+            "affinityF enmityF  powerF    influenceF ."
+            "specialL  specialL .         .          ."
+            "specialF  specialF specialF  specialF   specialF"
+            "detailsL  detailsL .         .          ."
+            "detailsF  detailsF detailsF  detailsF   detailsF";
+
+        label.npc_name { grid-area: nameL; }
+        input.npc_name { grid-area: nameF; }
+        label.npc_location { grid-area: locationL; }
+        input.npc_location { grid-area: locationF; }
+        label.npc_type { grid-area: typeL; }
+        select.npc_type { grid-area: typeF; }
+        label.npc_affinity { grid-area: affinityL; }
+        input.npc_affinity { grid-area: affinityF; }
+        label.npc_enmity { grid-area: enmityL; }
+        input.npc_enmity { grid-area: enmityF; }
+        label.npc_power { grid-area: powerL; }
+        input.npc_power { grid-area: powerF; }
+        label.npc_influence { grid-area: influenceL; }
+        input.npc_influence { grid-area: influenceF; }
+        label.npc_special_characteristics { grid-area: specialL; }
+        textarea.npc_special_characteristics { grid-area: specialF; }
+        label.npc_details { grid-area: detailsL; }
+        textarea.npc_details { grid-area: detailsF; }
+    }
+
+    .term {
+        @include grid;
+
+        grid-template-areas:
+            "ageL     careerL  rankL    survivedL advancedL"
+            "ageF     careerF  rankF    survivedF advancedF"
+            "musterL  musterL  .        .         ."
+            "musterF  musterF  musterF  musterF   musterF"
+            "detailsL detailsL .        .         ."
+            "detailsF detailsF detailsF detailsF  detailsF";
+
+        label.term_age { grid-area: ageL; }
+        span.term_age { grid-area: ageF; }
+        label.term_career { grid-area: careerL; }
+        input.term_career { grid-area: careerF; }
+        label.term_rank { grid-area: rankL; }
+        span.term_rank { grid-area: rankF; }
+        label.term_survived { grid-area: survivedL; }
+        checkbox.term_survived { grid-area: survivedF; }
+        label.term_advanced { grid-area: advancedL; }
+        checkbox.term_advanced { grid-area: advancedF; }
+        label.term_mustering_out { grid-area: musterL; }
+        textarea.term_mustering_out { grid-area: musterF; }
+        label.term_details { grid-area: detailsL; }
+        textarea.term_details { grid-area: detailsF; }
+    }
+
+    .skills_top {
+        @include grid;
+
+        grid-template-areas:
+            "joatL untrainedL"
+            "joatF untrainedF";
+
+        label.joat { grid-area: joatL; }
+        input.joat { grid-area: joatF; }
+        label.untrained_dm { grid-area: untrainedL; }
+        span.untrained_dm { grid-area: untrainedF; }
+    }
+
+    .skill {
+        @include grid;
+
+        grid-template-areas:
+            "nameL specialismL levelL"
+            "nameF specialismF levelF";
+
+        label.skill_name { grid-area: nameL; }
+        input.skill_name { grid-area: nameF; }
+        label.skill_specialism { grid-area: specialismL; }
+        input.skill_specialism { grid-area: specialismF; }
+        label.skill_level { grid-area: levelL; }
+        span.skill_level { grid-area: levelF; }
+    }
+
+    .incompatibility {
+        font-weight: bold;
+        color: $incompatibility-text-color;
+    }
+
+    .rules {
+        font-style: italic;
+    }
+
+    .ref {
+        font-weight: bold;
+    }
 }
 
-.characteristic {
-    grid-template-areas:
-        "name name name name"
-        "curL maxL dmL ."
-        "curF maxF dmF roll";
-    grid-column-gap: 4px;
-    margin-top: 16px;
-    padding-top: 8px;
-    border-top: 1px solid #ccc;
-}
-.characteristic--first {
-    border-top: none;
-    padding-top: 0;
-    margin-top: 8px;
-}
-.characteristic h3 {
-    grid-area: name;
-    font-weight: bold;
-    text-align: center;
-    color: #333;
-    text-transform: uppercase;
-    font-size: 9px;
-    line-height: 12px;
-}
-.characteristic label.cur { grid-area: curL; }
-.characteristic input.cur { grid-area: curF; }
-.characteristic label.max { grid-area: maxL; }
-.characteristic input.max { grid-area: maxF; }
-.characteristic label.dm { grid-area: dmL; }
-.characteristic input.dm { grid-area: dmF; }
-.characteristic button.roll { grid-area: roll; }
+.sheet-rolltemplate-rolls {
+    .sheet-container {
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        font-family: "Oswald", sans-serif;
+        line-height: revert;
+    }
 
-.tab_buttons {
-    display: flex;
-}
-.tab_buttons label {
-    font-size: 16px;
-    text-align: center;
-    padding: 8px;
-    border: 1px solid #aaa;
-    background-color: #ccc;
-    border-radius: 5px;
-}
-.tab_buttons label:hover {
-    background-color: #ccccff;
-}
+    .sheet-header {
+        padding: 4px;
+        border-bottom: 1px solid #ccc;
+    }
 
-.aslan_upbringing {
-    grid-template-areas:
-        "clanL inheritL anterL ropL"
-        "clanF inheritF anterF ropS";
-}
-.aslan_upbringing label.aslan_clan { grid-area: clanL; }
-.aslan_upbringing select.aslan_clan { grid-area: clanF; }
-.aslan_upbringing label.aslan_inheritance { grid-area: inheritL; }
-.aslan_upbringing select.aslan_inheritance { grid-area: inheritF; }
-.aslan_upbringing label.aslan_ancestral_ter { grid-area: anterL; }
-.aslan_upbringing input.aslan_ancestral_ter { grid-area: anterF; }
-.aslan_upbringing label.aslan_rite_of_passage { grid-area: ropL; }
-.aslan_upbringing span.aslan_rite_of_passage { grid-area: ropS; }
+    .sheet-title {
+        font-size: 18px;
+    }
 
-.recent_event {
-    grid-template-areas:
-        "nameL    dateL    locationL"
-        "nameF    dateF    locationF"
-        "detailsL .        ."
-        "detailsF detailsF detailsF";
-}
-.recent_event label.event_name { grid-area: nameL; }
-.recent_event input.event_name { grid-area: nameF; }
-.recent_event label.event_date { grid-area: dateL; }
-.recent_event input.event_date { grid-area: dateF; }
-.recent_event label.event_location { grid-area: locationL; }
-.recent_event input.event_location { grid-area: locationF; }
-.recent_event label.event_details { grid-area: detailsL; }
-.recent_event textarea.event_details { grid-area: detailsF; }
+    .sheet-subtitle {
+        font-size: 16px;
+    }
 
-.term {
-    grid-template-areas:
-        "ageL     careerL  rankL    survivedL advancedL"
-        "ageF     careerF  rankF    survivedF advancedF"
-        "musterL  musterL  .        .         ."
-        "musterF  musterF  musterF  musterF   musterF"
-        "detailsL detailsL .        .         ."
-        "detailsF detailsF detailsF detailsF  detailsF";
-}
-.term label.term_age { grid-area: ageL; }
-.term span.term_age { grid-area: ageF; }
-.term label.term_career { grid-area: careerL; }
-.term input.term_career { grid-area: careerF; }
-.term label.term_rank { grid-area: rankL; }
-.term span.term_rank { grid-area: rankF; }
-.term label.term_survived { grid-area: survivedL; }
-.term checkbox.term_survived { grid-area: survivedF; }
-.term label.term_advanced { grid-area: advancedL; }
-.term checkbox.term_advanced { grid-area: advancedF; }
-.term label.term_mustering_out { grid-area: musterL; }
-.term textarea.term_mustering_out { grid-area: musterF; }
-.term label.term_details { grid-area: detailsL; }
-.term textarea.term_details { grid-area: detailsF; }
+    .sheet-content {
+        display: grid;
+        grid-template-columns: auto auto;
+        font-size: 16px;
 
-.npc {
-    grid-template-areas:
-        "nameL     nameL    locationL locationL  typeL"
-        "nameF     nameF    locationF locationF  typeF"
-        "affinityL enmityL  powerL    influenceL ."
-        "affinityF enmityF  powerF    influenceF ."
-        "specialL  specialL .         .          ."
-        "specialF  specialF specialF  specialF   specialF"
-        "detailsL  detailsL .         .          ."
-        "detailsF  detailsF detailsF  detailsF   detailsF";
-}
-.npc label.npc_name { grid-area: nameL; }
-.npc input.npc_name { grid-area: nameF; }
-.npc label.npc_location { grid-area: locationL; }
-.npc input.npc_location { grid-area: locationF; }
-.npc label.npc_type { grid-area: typeL; }
-.npc select.npc_type { grid-area: typeF; }
-.npc label.npc_affinity { grid-area: affinityL; }
-.npc input.npc_affinity { grid-area: affinityF; }
-.npc label.npc_enmity { grid-area: enmityL; }
-.npc input.npc_enmity { grid-area: enmityF; }
-.npc label.npc_power { grid-area: powerL; }
-.npc input.npc_power { grid-area: powerF; }
-.npc label.npc_influence { grid-area: influenceL; }
-.npc input.npc_influence { grid-area: influenceF; }
-.npc label.npc_special_characteristics { grid-area: specialL; }
-.npc textarea.npc_special_characteristics { grid-area: specialF; }
-.npc label.npc_details { grid-area: detailsL; }
-.npc textarea.npc_details { grid-area: detailsF; }
+        .sheet-key {
+            padding-right: 10px;
+            text-align: right;
+        }
+    }
+    .sheet-content > div {
+        padding: 8px;
+    }
 
-.skills_top {
-    grid-template-areas:
-        "joatL untrainedL"
-        "joatF untrainedF";
-}
-.skills_top label.joat { grid-area: joatL; }
-.skills_top input.joat { grid-area: joatF; }
-.skills_top label.untrained_dm { grid-area: untrainedL; }
-.skills_top span.untrained_dm { grid-area: untrainedF; }
-
-.skill {
-    grid-template-areas:
-        "nameL specialismL levelL"
-        "nameF specialismF levelF";
-}
-.skill label.skill_name { grid-area: nameL; }
-.skill input.skill_name { grid-area: nameF; }
-.skill label.skill_specialism { grid-area: specialismL; }
-.skill input.skill_specialism { grid-area: specialismF; }
-.skill label.skill_level { grid-area: levelL; }
-.skill span.skill_level { grid-area: levelF; }
-
-.incompatibility {
-    font-weight: bold;
-    color: #ff0000;
-}
-
-.rules {
-    font-style: italic;
-}
-
-.ref {
-    font-weight: bold;
-}
-
-.sheet-rolltemplate-rolls .sheet-container {
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    font-family: "Oswald", sans-serif;
-    line-height: revert;
-}
-.sheet-rolltemplate-rolls .sheet-header {
-    padding: 4px;
-    border-bottom: 1px solid #ccc;
-}
-.sheet-rolltemplate-rolls .sheet-title {
-    font-size: 18px;
-}
-.sheet-rolltemplate-rolls .sheet-subtitle {
-    font-size: 16px;
-}
-.sheet-rolltemplate-rolls .sheet-content {
-    display: grid;
-    grid-template-columns: auto auto;
-    font-size: 16px;
-}
-.sheet-rolltemplate-rolls .sheet-content > div {
-    padding: 8px;
-}
-.sheet-rolltemplate-rolls .sheet-content .sheet-key {
-    padding-right: 10px;
-    text-align: right;
-}
-.sheet-rolltemplate-rolls .sheet-desc, .sheet-rolltemplate-rolls .sheet-crit, .sheet-rolltemplate-rolls .sheet-fail {
-    grid-column: span 2;
-    padding: 4px;
-    text-align: center;
-}
-.sheet-rolltemplate-rolls .sheet-crit {
-    color: green;
-}
-.sheet-rolltemplate-rolls .sheet-fail {
-    color: red;
+    .sheet-desc, .sheet-crit, .sheet-fail {
+        grid-column: span 2;
+        padding: 4px;
+        text-align: center;
+    }
+    .sheet-crit {
+        color: green;
+    }
+    .sheet-fail {
+        color: red;
+    }
 }
