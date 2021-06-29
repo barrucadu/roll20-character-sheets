@@ -1,9 +1,9 @@
-mixin roll(title, short, attr, extra="")
+mixin roll(title, short, attr, extra="", rest="")
   button(
     type="roll"
     class="roll"
     name=short
-    value=`&{template:rolls} {{title=${title}}} {{subtitle=@{character_name}}} {{roll=[[2d6+@{${attr}}${extra}+?{DM|0}]]}} {{baseroll=\$[[0]]}}`
+    value=`&{template:rolls} {{title=${title}}} {{subtitle=@{character_name}}} {{roll=[[2d6+@{${attr}}${extra}+?{DM|0}]]}} ${rest}`
   )
 
 input(type="hidden" name="attr_toggle_species" class="toggle--species" value="human")

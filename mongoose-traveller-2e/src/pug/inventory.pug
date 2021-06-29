@@ -1,19 +1,97 @@
 h2 Finances
 
-p TODO
+div(class="finance")
+  label(class="finance_pension") Pension
+  input(type="number" min="0" value="0" name="attr_finance_pension" class="finance_pension")
+
+  label(class="finance_debt") Debt
+  input(type="number" min="0" value="0" name="attr_finance_debt" class="finance_debt")
+
+  label(class="finance_cash") Cash
+  input(type="number" min="0" value="0" name="attr_finance_cash" class="finance_cash")
+
+  label(class="finance_ship") Monthly Ship Payments
+  input(type="number" min="0" value="0" name="attr_finance_ship" class="finance_ship")
+
+  label(class="finance_living") Living Costs
+  input(type="number" min="0" value="0" name="attr_finance_living" class="finance_living")
+
+  label(class="finance_other") Other
+  textarea(name="attr_finance_other" class="finance_other")
 
 h2 Armour
 
-p TODO
+div(class="sepitems")
+  fieldset(class="repeating_armour")
+    div(class="armour")
+      label(class="armour_type") Type
+      input(type="text" name="attr_armour_type" class="armour_type")
+
+      label(class="armour_tl") TL
+      input(type="number" min="0" max="15" value="0" name="attr_armour_tl" class="armour_tl")
+
+      label(class="armour_weight") Weight
+      input(type="number" min="0" value="0" name="attr_armour_weight" class="armour_weight")
+
+      label(class="armour_rad") Rad
+      input(type="number" min="0" value="0" name="attr_armour_rad" class="armour_rad")
+
+      label(class="armour_protection") Protection
+      input(type="number" min="0" value="0" name="attr_armour_protection" class="armour_protection")
+
+      label(class="armour_protection_l") Protection (Laser)
+      input(type="number" min="0" value="0" name="attr_armour_protection_l" class="armour_protection_l")
+
+      label(class="armour_details") Details
+      input(type="text" name="attr_armour_details" class="armour_details")
 
 h2 Weapons
 
-p TODO
+div(class="sepitems")
+  fieldset(class="repeating_weapons")
+    div(class="weapon")
+      label(class="weapon_type") Type
+      input(type="text" name="attr_weapon_type" class="weapon_type")
+
+      label(class="weapon_tl") TL
+      input(type="number" min="0" max="15" value="0" name="attr_weapon_tl" class="weapon_tl")
+
+      label(class="weapon_weight") Weight
+      input(type="number" min="0" value="0" name="attr_weapon_weight" class="weapon_weight")
+
+      label(class="weapon_range") Range
+      input(type="text" name="attr_weapon_range" class="weapon_range")
+
+      label(class="weapon_damage") Damage
+      input(type="text" name="attr_weapon_damage" class="weapon_damage")
+
+      label(class="weapon_magazine") Magazine
+      input(type="number" min="0" value="0" name="attr_weapon_magazine" class="weapon_magazine")
+
+      label(class="skill_level") Skill Level
+      span(class="skill_level")
+        input(type="number" min="0" value="0" name="attr_skill_level")
+        +roll("@{weapon_type} (TL @{weapon_tl})", "atk", "skill_level", "+@{characteristic_rollmod}", "{{damage=[[@{weapon_damage}]]}} {{desc=@{weapon_details}}}")
+
+      label(class="weapon_details") Details
+      input(type="text" name="attr_weapon_details" class="weapon_details")
 
 h2 Equipment
 
-p TODO
+div(class="sepitems")
+  fieldset(class="repeating_equipment")
+    div(class="equipment")
+      label(class="equipment_type") Name
+      input(type="text" name="attr_equipment_type" class="equipment_type")
 
-h2 Augments
+      label(class="equipment_tl") TL
+      input(type="number" min="0" max="15" value="0" name="attr_equipment_tl" class="equipment_tl")
 
-p TODO
+      label(class="equipment_weight") Weight
+      input(type="number" min="0" value="0" name="attr_equipment_weight" class="equipment_weight")
+
+      label(class="equipment_quantity") Quantity
+      input(type="number" min="0" value="0" name="attr_equipment_quantity" class="equipment_quantity")
+
+      label(class="equipment_details") Details
+      input(type="text" name="attr_equipment_details" class="equipment_details")

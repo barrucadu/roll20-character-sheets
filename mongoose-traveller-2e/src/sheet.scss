@@ -9,6 +9,7 @@
 .charactersheet {
     $text-color: #000;
     $border-color: #ccc;
+    $dice-color: #730b0b;
     $selected-text-color: #730b0b;
     $selected-border-color: #730b0b;
     $input-background: #f9f9f9;
@@ -57,12 +58,13 @@
     h2 {
         font-weight: bold;
         text-transform: uppercase;
-        font-size: 18px;
         text-decoration: none;
+        text-align: right;
+        font-size: 14px;
     }
     * h2:not(:first-child) {
-        margin-top: 16px;
-        padding-top: 8px;
+        margin-top: 8px;
+        border-top: 1px solid $border-color;
     }
 
     label {
@@ -85,6 +87,7 @@
     }
     button[type="roll"] {
         height: 24px;
+        color: $dice-color;
     }
 
     .sepitems {
@@ -173,7 +176,7 @@
     .characteristic--first {
         border-top: none;
         padding-top: 0;
-        margin-top: 8px;
+        margin-top: 0;
     }
 
     .tab_buttons {
@@ -312,32 +315,128 @@
     .skill {
         @include grid;
 
-        grid-template-columns: max-content auto auto max-content;
+        grid-template-columns: auto auto max-content max-content;
         grid-template-areas:
-            "expL nameL specialismL levelL"
-            "expF nameF specialismF levelF";
+            "nameL specialismL expL levelL"
+            "nameF specialismF expF levelF";
 
-        label.skill_exp { grid-area: expL; }
-        input.skill_exp { grid-area: expF; }
         label.skill_name { grid-area: nameL; }
         input.skill_name { grid-area: nameF; }
         label.skill_specialism { grid-area: specialismL; }
         input.skill_specialism { grid-area: specialismF; }
+        label.skill_exp { grid-area: expL; }
+        input.skill_exp { grid-area: expF; }
         label.skill_level { grid-area: levelL; }
         span.skill_level { grid-area: levelF; }
+    }
+
+    .finance {
+        @include grid;
+
+        grid-template-columns: auto auto auto auto auto;
+        grid-template-areas:
+            "pensionL debtL  cashL  shipL  livingL"
+            "pensionF debtF  cashF  shipF  livingF"
+            "otherL   otherL otherL otherL otherL"
+            "otherF   otherF otherF otherF otherF";
+
+        label.finance_pension { grid-area: pensionL; }
+        input.finance_pension { grid-area: pensionF; }
+        label.finance_debt { grid-area: debtL; }
+        input.finance_debt { grid-area: debtF; }
+        label.finance_cash { grid-area: cashL; }
+        input.finance_cash { grid-area: cashF; }
+        label.finance_ship { grid-area: shipL; }
+        input.finance_ship { grid-area: shipF; }
+        label.finance_living { grid-area: livingL; }
+        input.finance_living { grid-area: livingF; }
+        label.finance_other { grid-area: otherL; }
+        textarea.finance_other { grid-area: otherF; }
+
+        input[type="number"] {
+            width: 100%;
+        }
+    }
+
+    .armour {
+        @include grid;
+
+        grid-template-columns: auto max-content max-content max-content max-content auto;
+        grid-template-areas:
+            "typeL    tlL      weightL  radL     protectionL protectionlL"
+            "typeF    tlF      weightF  radF     protectionF protectionlF"
+            "detailsL detailsL detailsL detailsL detailsL    detailsL"
+            "detailsF detailsF detailsF detailsF detailsF    detailsF";
+
+        label.armour_type { grid-area: typeL; }
+        input.armour_type { grid-area: typeF; }
+        label.armour_tl { grid-area: tlL; }
+        input.armour_tl { grid-area: tlF; }
+        label.armour_weight { grid-area: weightL; }
+        input.armour_weight { grid-area: weightF; }
+        label.armour_rad { grid-area: radL; }
+        input.armour_rad { grid-area: radF; }
+        label.armour_protection { grid-area: protectionL; }
+        input.armour_protection { grid-area: protectionF; }
+        label.armour_protection_l { grid-area: protectionlL; }
+        span.armour_protection_l { grid-area: protectionlF; }
+        label.armour_details { grid-area: detailsL; }
+        input.armour_details { grid-area: detailsF; }
+    }
+
+    .weapon {
+        @include grid;
+
+        grid-template-columns: auto max-content max-content auto auto max-content max-content;
+        grid-template-areas:
+            "typeL    tlL      weightL  rangeL   damageL  magazineL skillL"
+            "typeF    tlF      weightF  rangeF   damageF  magazineF skillF"
+            "detailsL detailsL detailsL detailsL detailsL detailsL  detailsL"
+            "detailsF detailsF detailsF detailsF detailsF detailsF  detailsF";
+
+        label.weapon_type { grid-area: typeL; }
+        input.weapon_type { grid-area: typeF; }
+        label.weapon_tl { grid-area: tlL; }
+        input.weapon_tl { grid-area: tlF; }
+        label.weapon_weight { grid-area: weightL; }
+        input.weapon_weight { grid-area: weightF; }
+        label.weapon_range { grid-area: rangeL; }
+        input.weapon_range { grid-area: rangeF; }
+        label.weapon_damage { grid-area: damageL; }
+        input.weapon_damage { grid-area: damageF; }
+        label.weapon_magazine { grid-area: magazineL; }
+        input.weapon_magazine { grid-area: magazineF; }
+        label.weapon_skill { grid-area: skillL; }
+        span.weapon_skill { grid-area: skillF; }
+        label.weapon_details { grid-area: detailsL; }
+        input.weapon_details { grid-area: detailsF; }
+    }
+
+    .equipment {
+        @include grid;
+
+        grid-template-columns: auto max-content max-content auto;
+        grid-template-areas:
+            "nameL    tlL      weightL  quantityL"
+            "nameF    tlF      weightF  quantityF"
+            "detailsL detailsL detailsL detailsL"
+            "detailsF detailsF detailsF detailsF";
+
+        label.equipment_name { grid-area: nameL; }
+        input.equipment_name { grid-area: nameF; }
+        label.equipment_tl { grid-area: tlL; }
+        input.equipment_tl { grid-area: tlF; }
+        label.equipment_weight { grid-area: weightL; }
+        input.equipment_weight { grid-area: weightF; }
+        label.equipment_quantity { grid-area: quantityL; }
+        input.equipment_quantity { grid-area: quantityF; }
+        label.equipment_details { grid-area: detailsL; }
+        input.equipment_details { grid-area: detailsF; }
     }
 
     .incompatibility {
         font-weight: bold;
         color: $incompatibility-text-color;
-    }
-
-    .rules {
-        font-style: italic;
-    }
-
-    .ref {
-        font-weight: bold;
     }
 }
 
@@ -376,15 +475,9 @@
         padding: 8px;
     }
 
-    .sheet-desc, .sheet-crit, .sheet-fail {
+    .sheet-desc {
         grid-column: span 2;
         padding: 4px;
         text-align: center;
-    }
-    .sheet-crit {
-        color: green;
-    }
-    .sheet-fail {
-        color: red;
     }
 }
