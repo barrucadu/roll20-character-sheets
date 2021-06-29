@@ -1,6 +1,12 @@
 Mongoose Traveller 2e
 =====================
 
+```bash
+$ npm install
+$ npm run compile:html
+$ npm run compile:css
+```
+
 ## Additions
 
 From the *Traveller Companion*:

@@ -1,0 +1,17 @@
+<rolltemplate class="sheet-rolltemplate-rolls">
+  <div class="sheet-container">
+    <div class="sheet-header">
+      {{#title}}<div class="sheet-title">{{title}}</div>{{/title}}
+      {{#subtitle}}<div class="sheet-subtitle">{{subtitle}}</div>{{/subtitle}}
+    </div>
+    <div class="sheet-content">
+      {{#allprops() title subtitle desc baseroll}}
+      <div class="sheet-key">{{key}}</div>
+      <div class="sheet-value">{{value}}</div>
+      {{/allprops() title subtitle desc baseroll}}
+      {{#rollTotal() baseroll 2}}<div class="sheet-fail">Natural 2!</div>{{/rollTotal() baseroll 2}}
+      {{#rollTotal() baseroll 12}}<div class="sheet-crit">Natural 12!</div>{{/rollTotal() baseroll 12}}
+      {{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
+    </div>
+  </div>
+</rolltemplate>

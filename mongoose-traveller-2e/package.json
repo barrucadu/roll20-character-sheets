@@ -1,0 +1,12 @@
+{
+    "name": "mongoose-traveller-2e",
+    "dependencies": {
+        "pug": "^3",
+        "pug-cli": "",
+        "sass": "^1"
+    },
+    "scripts": {
+        "compile:css": "sass src/sheet.scss sheet.css",
+        "compile:html": "pug src/sheet.pug -o ."
+    }
+}
