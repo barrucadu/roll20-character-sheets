@@ -109,11 +109,12 @@
     .character-header {
         @include grid;
 
+        grid-template-columns: auto auto auto max-content max-content auto;
         grid-template-areas:
-            "nameF   nameF      nameF    ageL     radsL"
-            "nameF   nameF      nameF    ageF     radsF"
-            "genderL homeworldL speciesL cultureL ."
-            "genderF homeworldF speciesF cultureF cultureF";
+            "nameF   nameF      nameF    ageL     radsL ."
+            "nameF   nameF      nameF    ageF     radsF ."
+            "genderL homeworldL speciesL cultureL cultureL cultureL"
+            "genderF homeworldF speciesF cultureF cultureF cultureF";
 
         label.character_name { grid-area: nameL; }
         input.character_name { grid-area: nameF; font-size: 20px; }
@@ -143,6 +144,7 @@
     .characteristic {
         @include grid;
 
+        grid-template-columns: auto auto max-content;
         grid-template-areas:
             "name name name name"
             "curL maxL dmL  ."
@@ -196,6 +198,7 @@
     .aslan_upbringing {
         @include grid;
 
+        grid-template-columns: auto auto max-content max-content;
         grid-template-areas:
             "clanL inheritL anterL ropL"
             "clanF inheritF anterF ropS";
@@ -213,6 +216,7 @@
     .recent_event {
         @include grid;
 
+        grid-template-columns: auto auto auto;
         grid-template-areas:
             "nameL    dateL    locationL"
             "nameF    dateF    locationF"
@@ -232,15 +236,16 @@
     .npc {
         @include grid;
 
+        grid-template-columns: max-content max-content max-content auto auto auto;
         grid-template-areas:
-            "nameL     nameL    locationL locationL  typeL"
-            "nameF     nameF    locationF locationF  typeF"
-            "affinityL enmityL  powerL    influenceL ."
-            "affinityF enmityF  powerF    influenceF ."
-            "specialL  specialL .         .          ."
-            "specialF  specialF specialF  specialF   specialF"
-            "detailsL  detailsL .         .          ."
-            "detailsF  detailsF detailsF  detailsF   detailsF";
+            "nameL     nameL    nameL   nameL      locationL typeL"
+            "nameF     nameF    nameF   nameF      locationF typeF"
+            "affinityL enmityL  powerL  influenceL .         ."
+            "affinityF enmityF  powerF  influenceF .         ."
+            "specialL  specialL specialL specialL  specialL  specialL"
+            "specialF  specialF specialF specialF  specialF  specialF"
+            "detailsL  detailsL detailsL detailsL  detailsL  detailsL"
+            "detailsF  detailsF detailsF detailsF  detailsF  detailsF";
 
         label.npc_name { grid-area: nameL; }
         input.npc_name { grid-area: nameF; }
@@ -265,12 +270,13 @@
     .term {
         @include grid;
 
+        grid-template-columns: max-content auto max-content max-content max-content;
         grid-template-areas:
             "ageL     careerL  rankL    survivedL advancedL"
             "ageF     careerF  rankF    survivedF advancedF"
-            "musterL  musterL  .        .         ."
+            "musterL  musterL  musterL  musterL   musterL"
             "musterF  musterF  musterF  musterF   musterF"
-            "detailsL detailsL .        .         ."
+            "detailsL detailsL detailsL detailsL  detailsL"
             "detailsF detailsF detailsF detailsF  detailsF";
 
         label.term_age { grid-area: ageL; }
@@ -292,9 +298,10 @@
     .skills_top {
         @include grid;
 
+        grid-template-columns: max-content max-content auto;
         grid-template-areas:
-            "joatL untrainedL"
-            "joatF untrainedF";
+            "joatL untrainedL ."
+            "joatF untrainedF .";
 
         label.joat { grid-area: joatL; }
         input.joat { grid-area: joatF; }
@@ -305,10 +312,13 @@
     .skill {
         @include grid;
 
+        grid-template-columns: max-content auto auto max-content;
         grid-template-areas:
-            "nameL specialismL levelL"
-            "nameF specialismF levelF";
+            "expL nameL specialismL levelL"
+            "expF nameF specialismF levelF";
 
+        label.skill_exp { grid-area: expL; }
+        input.skill_exp { grid-area: expF; }
         label.skill_name { grid-area: nameL; }
         input.skill_name { grid-area: nameF; }
         label.skill_specialism { grid-area: specialismL; }
