@@ -1,0 +1,480 @@
+<input type="hidden" name="attr_toggle_species" class="toggle--species" value="human">
+<input type="hidden" name="attr_toggle_culture" class="toggle--culture" value="third_imperium">
+<input type="hidden" name="attr_characteristic_rollmod">
+
+<div class="character-header">
+  <input type="text" name="attr_character_name" class="character_name">
+
+  <label class="character_age">Age</label>
+  <input type="number" min="14" value="18" name="attr_character_age" class="character_age">
+
+  <label class="character_rads">Rads</label>
+  <input type="number" min="0" value="0" name="attr_character_rads" class="character_rads">
+
+  <label class="character_gender">Gender</label>
+  <input type="text" name="attr_character_gender" class="character_gender">
+
+  <label class="character_homeworld">Homeworld</label>
+  <input type="text" name="attr_character_homeworld" class="character_homeworld">
+
+  <label class="character_species">Species</label>
+  <select name="attr_character_species" class="character_species">
+    <option value="human" selected>Human</option>
+    <option value="aslan">Aslan</option>
+    <option value="vargr">Vargr</option>
+  </select>
+
+  <label class="character_culture">Culture</label>
+  <select name="attr_character_culture" class="character_culture">
+    <option value="third_imperium" selected>Third Imperium</option>
+    <option value="aslan_hierate">Aslan Hierate</option>
+    <option value="vargr_extents">Vargr Extents</option>
+  </select>
+</div>
+
+<span class="toggle toggle_culture--aslan_hierate">
+  <span class="incompatibility toggle toggle_species--human toggle_species--vargr">Only Aslan can be raised in the culture of the Aslan Hierate.</span>
+</span>
+
+<span class="toggle toggle_culture--vargr_extents">
+  <span class="incompatibility toggle toggle_species--human toggle_species--aslan">Only Vargr can be raised in the culture of the Vargr Extents.</span>
+</span>
+
+<div class="columns">
+  <div class="column">
+    <div class="characteristic characteristic--first">
+      <h3>Strength</h3>
+      <label class="cur">Cur</label>
+      <input type="number" min="0" value="6" name="attr_characteristics_current_str" class="cur">
+      <label class="max">Max</label>
+      <input type="number" min="0" value="6" name="attr_characteristics_max_str" class="max">
+      <label class="dm">DM</label>
+      <input type="hidden" name="attr_characteristics_dm_str">
+      <input type="number" disabled="true" name="attr_characteristics_dm_str_display" value="@{characteristics_dm_str}" class="dm">
+      <button type="roll"
+              name="roll_str"
+              class="roll"
+              value="&{template:rolls} {{title=Strength}} {{subtitle=@{character_name}}} {{roll=[[2d6+@{characteristics_dm_str}+?{DM|0}]]}} {{baseroll=$[[0]]}}">
+    </div>
+
+    <div class="characteristic">
+      <h3>Dexterity</h3>
+      <label class="cur">Cur</label>
+      <input type="number" min="0" value="6" name="attr_characteristics_current_dex" class="cur">
+      <label class="max">Max</label>
+      <input type="number" min="0" value="6" name="attr_characteristics_max_dex" class="max">
+      <label class="dm">DM</label>
+      <input type="hidden" name="attr_characteristics_dm_dex">
+      <input type="number" disabled="true" name="attr_characteristics_dm_dex_display" value="@{characteristics_dm_dex}" class="dm">
+      <button type="roll"
+              name="roll_dex"
+              class="roll"
+              value="&{template:rolls} {{title=Dexterity}} {{subtitle=@{character_name}}} {{roll=[[2d6+@{characteristics_dm_dex}+?{DM|0}]]}} {{baseroll=$[[0]]}}">
+    </div>
+
+    <div class="characteristic">
+      <h3>Endurance</h3>
+      <label class="cur">Cur</label>
+      <input type="number" min="0" value="6" name="attr_characteristics_current_end" class="cur">
+      <label class="max">Max</label>
+      <input type="number" min="0" value="6" name="attr_characteristics_max_end" class="max">
+      <label class="dm">DM</label>
+      <input type="hidden" name="attr_characteristics_dm_end">
+      <input type="number" disabled="true" name="attr_characteristics_dm_end_display" value="@{characteristics_dm_end}" class="dm">
+      <button type="roll"
+              name="roll_end"
+              class="roll"
+              value="&{template:rolls} {{title=Endurance}} {{subtitle=@{character_name}}} {{roll=[[2d6+@{characteristics_dm_end}+?{DM|0}]]}} {{baseroll=$[[0]]}}">
+    </div>
+
+    <div class="characteristic">
+      <h3>Intellect</h3>
+      <label class="cur">Cur</label>
+      <input type="number" min="0" value="6" name="attr_characteristics_current_int" class="cur">
+      <label class="max">Max</label>
+      <input type="number" min="0" value="6" name="attr_characteristics_max_int" class="max">
+      <label class="dm">DM</label>
+      <input type="hidden" name="attr_characteristics_dm_int">
+      <input type="number" disabled="true" name="attr_characteristics_dm_int_display" value="@{characteristics_dm_int}" class="dm">
+      <button type="roll"
+              name="roll_int"
+              class="roll"
+              value="&{template:rolls} {{title=Intellect}} {{subtitle=@{character_name}}} {{roll=[[2d6+@{characteristics_dm_int}+?{DM|0}]]}} {{baseroll=$[[0]]}}">
+    </div>
+
+    <div class="characteristic">
+      <h3>Education</h3>
+      <label class="cur">Cur</label>
+      <input type="number" min="0" value="6" name="attr_characteristics_current_edu" class="cur">
+      <label class="max">Max</label>
+      <input type="number" min="0" value="6" name="attr_characteristics_max_edu" class="max">
+      <label class="dm">DM</label>
+      <input type="hidden" name="attr_characteristics_dm_edu">
+      <input type="number" disabled="true" name="attr_characteristics_dm_edu_display" value="@{characteristics_dm_edu}" class="dm">
+      <button type="roll"
+              name="roll_edu"
+              class="roll"
+              value="&{template:rolls} {{title=Education}} {{subtitle=@{character_name}}} {{roll=[[2d6+@{characteristics_dm_edu}+?{DM|0}]]}} {{baseroll=$[[0]]}}">
+    </div>
+
+    <div class="toggle toggle_culture--third_imperium toggle_culture--aslan_hierate">
+      <div class="characteristic">
+        <h3>Social</h3>
+        <label class="cur">Cur</label>
+        <input type="number" min="0" value="6" name="attr_characteristics_current_soc" class="cur">
+        <label class="max">Max</label>
+        <input type="number" min="0" value="6" name="attr_characteristics_max_soc" class="max">
+        <label class="dm">DM</label>
+        <input type="hidden" name="attr_characteristics_dm_soc">
+        <input type="number" disabled="true" name="attr_characteristics_dm_soc_display" value="@{characteristics_dm_soc}" class="dm">
+        <button type="roll"
+                name="roll_soc"
+                class="roll"
+                value="&{template:rolls} {{title=Social}} {{subtitle=@{character_name}}} {{roll=[[2d6+@{characteristics_dm_soc}+?{DM|0}]]}} {{baseroll=$[[0]]}}">
+      </div>
+    </div>
+
+    <div class="toggle toggle_culture--aslan_hierate">
+      <div class="characteristic">
+        <h3>Aslan Territory</h3>
+        <label class="cur">Cur</label>
+        <input type="number" min="0" value="0" name="attr_characteristics_current_ter" class="cur">
+        <label class="max">Max</label>
+        <input type="number" min="0" value="0" name="attr_characteristics_max_ter" class="max">
+        <label class="dm">DM</label>
+        <input type="hidden" name="attr_characteristics_dm_ter">
+        <input type="number" disabled="true" name="attr_characteristics_dm_ter_display" value="@{characteristics_dm_ter}" class="dm">
+        <button type="roll"
+                name="roll_ter"
+                class="roll"
+                value="&{template:rolls} {{title=Aslan Territory}} {{subtitle=@{character_name}}} {{roll=[[2d6+@{characteristics_dm_ter}+?{DM|0}]]}} {{baseroll=$[[0]]}}">
+      </div>
+    </div>
+
+    <div class="toggle toggle_culture--vargr_extents">
+      <div class="characteristic">
+        <h3>Vargr Charisma</h3>
+        <label class="cur">Cur</label>
+        <input type="number" min="0" value="6" name="attr_characteristics_current_cha" class="cur">
+        <label class="max">Max</label>
+        <input type="number" min="0" value="6" name="attr_characteristics_max_cha" class="max">
+        <label class="dm">DM</label>
+        <input type="hidden" name="attr_characteristics_dm_cha">
+        <input type="number" disabled="true" name="attr_characteristics_dm_cha_display" value="@{characteristics_dm_cha}" class="dm">
+        <button type="roll"
+                name="roll_cha"
+                class="roll"
+                value="&{template:rolls} {{title=Vargr Charisma}} {{subtitle=@{character_name}}} {{roll=[[2d6+@{characteristics_dm_cha}+?{DM|0}]]}} {{baseroll=$[[0]]}}">
+      </div>
+    </div>
+
+    <div class="characteristic">
+      <h3>Luck</h3>
+      <label class="cur">Cur</label>
+      <input type="number" min="0" value="6" name="attr_characteristics_current_lck" class="cur">
+      <label class="max">Max</label>
+      <input type="number" min="0" value="6" name="attr_characteristics_max_lck" class="max">
+      <label class="dm">DM</label>
+      <input type="hidden" name="attr_characteristics_dm_lck">
+      <input type="number" disabled="true" name="attr_characteristics_dm_lck_display" value="@{characteristics_dm_lck}" class="dm">
+      <button type="roll"
+              name="roll_lck"
+              class="roll"
+              value="&{template:rolls} {{title=Luck}} {{subtitle=@{character_name}}} {{roll=[[2d6+@{characteristics_dm_lck}+?{DM|0}]]}} {{baseroll=$[[0]]}}">
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="tab_buttons">
+      <label for="tab--biography">Biography</label>
+      <label for="tab--skills">Skills</label>
+      <label for="tab--inventory">Inventory</label>
+    </div>
+
+    <input style="display:none" type="radio" name="tab" id="tab--biography" checked>
+    <input style="display:none" type="radio" name="tab" id="tab--skills">
+    <input style="display:none" type="radio" name="tab" id="tab--inventory">
+
+    <div class="tab tab--biography">
+      <div class="toggle toggle_culture--third_imperium">
+        <h2>Third Imperium Upbringing</h2>
+        <p class="rules">
+          See chapter 1 of the <span class="ref">Traveller Core
+          Rulebook</span> for how to create a Traveller raised in the
+          Third Imperium.
+        </p>
+      </div>
+
+      <div class="toggle toggle_culture--aslan_hierate">
+        <h2>Aslan Hierate Upbringing</h2>
+
+        <div class="aslan_upbringing">
+          <label class="aslan_clan">Clan Type</label>
+          <select name="attr_aslan_clan" class="aslan_clan">
+            <option value="minor">Minor</option>
+            <option value="major">Major</option>
+          </select>
+
+          <label class="aslan_inheritance">Family Inheritance</label>
+          <select name="attr_aslan_inheritance" class="aslan_inheritance">
+            <option value="first">First Son / Eldest Daughter</option>
+            <option value="second">Second Son / Middle Daughter</option>
+            <option value="third">Third Son / Youngest Daughter</option>
+          </select>
+
+          <label class="aslan_ancestral_ter">Ancestral Territory</label>
+          <input type="number" min="0" value="0" name="attr_aslan_ancestral_ter" class="aslan_ancestral_ter">
+
+          <label class="aslan_rite_of_passage">Rite of Passage</label>
+          <span class="aslan_rite_of_passage">
+            <input type="number" min="0" max="6" value="0" name="attr_aslan_rite_of_passage">
+            <button type="roll"
+                    name="roll_rop"
+                    value="&{template:rolls} {{title=Aslan Rite of Passage}} {{subtitle=@{character_name}}} {{roll=[[2d6+@{aslan_rite_of_passage}+?{DM|0}]]}} {{baseroll=$[[0]]}}">
+          </span>
+        </div>
+
+        <p class="rules">
+          See chapter 2 of <span class="ref">Aliens of Charted Space:
+          Volume 1</span> for how to create an Aslan Traveller raised
+          in the Aslan Hierate.
+        </p>
+      </div>
+
+      <div class="toggle toggle_culture--vargr_extents">
+        <h2>Vargr Extents Upbringing</h2>
+        <p class="rules">
+          See chapter 13 of <span class="ref">Aliens of Charted Space:
+          Volume 1</span> for how to create a Vargr Traveller raised
+          in the Vargr Extents.
+        </p>
+      </div>
+
+      <h2>Recent Events</h2>
+
+      <fieldset class="repeating_events">
+        <div class="recent_event">
+          <label class="event_name">Name</label>
+          <input type="text" name="attr_event_name" class="event_name">
+
+          <label class="event_date">Date</label>
+          <input type="text" name="attr_event_date" class="event_date">
+
+          <label class="event_location">Location</label>
+          <input type="text" name="attr_event_location" class="event_location">
+
+          <label class="event_details">Details</label>
+          <textarea name="attr_event_details" class="event_details"></textarea>
+        </div>
+      </fieldset>
+
+      <h2>Allies, Contacts, Enemies, and Rivals</h2>
+
+      <fieldset class="repeating_npcs">
+        <div class="npc">
+          <label class="npc_name">Name</label>
+          <input type="text" name="attr_npc_name" class="npc_name">
+
+          <label class="npc_location">Location</label>
+          <input type="text" name="attr_npc_location" class="npc_location">
+
+          <label class="npc_type">Type</label>
+          <select name="attr_npc_type" class="npc_type">
+            <option value="ally">Ally</option>
+            <option value="contact">Contact</option>
+            <option value="rival">Rival</option>
+            <option value="enemy">Evemy</option>
+          </select>
+
+          <label class="npc_affinity">Affinity</label>
+          <input type="number" min="0" max="6" value="0" name="attr_npc_affinity" class="npc_affinity">
+
+          <label class="npc_enmity">Enmity</label>
+          <input type="number" min="-6" max="0" value="0" name="attr_npc_enmity" class="npc_enmity">
+
+          <label class="npc_power">Power</label>
+          <input type="number" min="0" max="6" value="0" name="attr_npc_power" class="npc_power">
+
+          <label class="npc_influence">Influence</label>
+          <input type="number" min="0" max="6" value="0" name="attr_npc_influence" class="npc_influence">
+
+          <label class="npc_special_characteristics">Special characteristics</label>
+          <textarea name="attr_npc_characteristics" class="npc_special_characteristics"></textarea>
+
+          <label class="npc_details">Details</label>
+          <textarea name="attr_npc_details" class="npc_details"></textarea>
+        </div>
+      </fieldset>
+
+      <h2>Terms</h2>
+
+      <fieldset class="repeating_terms">
+        <div class="term">
+          <label class="term_age">Age</label>
+          <span class="term_age">
+            <input type="number" min="14" value="18" name="attr_term_age_start">
+            to
+            <input type="number" min="18" value="22" name="attr_term_age_end">
+          </span>
+
+          <label class="term_career">Career</label>
+          <input type="text" name="attr_term_career" class="term_career">
+
+          <label class="term_rank">Rank</label>
+          <span class="term_rank">
+            <input type="number" min="0" value="0" name="attr_term_rank_start">
+            to
+            <input type="number" min="0" value="0" name="attr_term_rank_end">
+          </span>
+
+          <label class="term_survived">Survived?</label>
+          <input type="checkbox" name="attr_term_survived" class="term_survived">
+
+          <label class="term_advanced">Advanced?</label>
+          <input type="checkbox" name="attr_term_advanced" class="term_advanced">
+
+          <label class="term_mustering_out">Mustering out benefits</label>
+          <textarea name="attr_term_mustering_out" class="term_mustering_out"></textarea>
+
+          <label class="term_details">Details</label>
+          <textarea name="attr_term_details" class="term_details"></textarea>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="tab tab--skills">
+      <h2>Experience</h2>
+
+      <p>TODO</p>
+
+      <h2>Skills</h2>
+
+      <div class="skills_top">
+        <label class="joat">Jack of All Trades</label>
+        <input type="number" min="0" max="3" value="0" name="attr_joat" class="joat">
+        <label class="untrained_dm">Untrained Skill DM</label>
+        <input type="hidden" name="attr_untrained_dm">
+        <span class="untrained_dm">
+          <input type="number" disabled="true" value="@{untrained_dm}" name="attr_untrained_dm_display">
+          <button type="roll"
+                  name="roll_untrained"
+                  value="&{template:rolls} {{title=Untrained skill}} {{subtitle=@{character_name}}} {{roll=[[2d6+@{untrained_dm}+@{characteristic_rollmod}+?{DM|0}]]}} {{baseroll=$[[0]]}}">
+        </span>
+      </div>
+
+      <fieldset class="repeating_skills">
+        <div class="skill">
+          <label class="skill_name">Name</label>
+          <input type="text" name="attr_skill_name" class="skill_name">
+
+          <label class="skill_specialism">Specialism</label>
+          <input type="text" name="attr_skill_specialism" class="skill_specialism">
+
+          <label class="skill_level">Level</label>
+          <span class="skill_level">
+            <input type="number" min="0" value="0" name="attr_skill_level">
+            <button type="roll"
+                    name="roll_skill"
+                    value="&{template:rolls} {{title=@{skill_name} (@{skill_specialism})}} {{subtitle=@{character_name}}} {{roll=[[2d6+@{skill_level}+@{characteristic_rollmod}+?{DM|0}]]}} {{baseroll=$[[0]]}}">
+          </span>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="tab tab--inventory">
+      <h2>Finances</h2>
+
+      <p>TODO</p>
+
+      <h2>Armour</h2>
+
+      <p>TODO</p>
+
+      <h2>Weapons</h2>
+
+      <p>TODO</p>
+
+      <h2>Equipment</h2>
+
+      <p>TODO</p>
+
+      <h2>Augments</h2>
+
+      <p>TODO</p>
+    </div>
+  </div>
+</div>
+
+<script type="text/worker">
+/* Toggle attributes, used to show / hide other parts of the sheet */
+["character", "biography"].forEach(button => on(`clicked:${button}`, function () {
+    setAttrs({ "toggle_tab": button });
+}));
+
+["species", "culture"].forEach(attr => on(`change:character_${attr}`, function () {
+    getAttrs([`character_${attr}`], (values) => setAttrs({ [`toggle_${attr}`]: values[`character_${attr}`] }))
+}));
+
+/* Set characteristic roll modifier based on culture */
+on("sheet:opened change:character_culture", function() {
+    getAttrs(["character_culture"], (values) => {
+        switch(values["character_culture"]) {
+        case "aslan_hierate":
+            setAttrs({
+                "characteristic_rollmod": "?{Characteristic|None, 0|Strength, @{characteristics_dm_str}|Dexterity, @{characteristics_dm_dex}|Endurance, @{characteristics_dm_end}|Intellect, @{characteristics_dm_int}|Education, @{characteristics_dm_edu}|Social, @{characteristics_dm_soc}|Aslan Territory, @{characteristics_dm_ter}}"
+            });
+            break;
+        case "vargr_extents":
+            setAttrs({
+                "characteristic_rollmod": "?{Characteristic|None, 0|Strength, @{characteristics_dm_str}|Dexterity, @{characteristics_dm_dex}|Endurance, @{characteristics_dm_end}|Intellect, @{characteristics_dm_int}|Education, @{characteristics_dm_edu}|Vargr Charisma, @{characteristics_dm_cha}}"
+            });
+            break;
+        default:
+            setAttrs({
+                "characteristic_rollmod": "?{Characteristic|None, 0|Strength, @{characteristics_dm_str}|Dexterity, @{characteristics_dm_dex}|Endurance, @{characteristics_dm_end}|Intellect, @{characteristics_dm_int}|Education, @{characteristics_dm_edu}|Social, @{characteristics_dm_soc}}"
+            });
+        }
+    });
+});
+
+/* TER and CHA from the Aliens of Charted Space vol. 1; LCK from the Traveller Companion */
+["str", "dex", "end", "int", "edu", "soc", "ter", "cha", "lck"].forEach(characteristic => on(`sheet:opened change:characteristics_current_${characteristic}`, function() {
+    getAttrs([`characteristics_current_${characteristic}`], (values) => {
+        /* extended attribute DM formula from the Traveller Companion */
+        const val = values[`characteristics_current_${characteristic}`];
+        if(val == 0) {
+            setAttrs({
+                [`characteristics_dm_${characteristic}`]: -3
+            });
+        } else {
+            setAttrs({
+                [`characteristics_dm_${characteristic}`]: Math.floor((val - 6) / 3)
+            });
+        }
+    });
+}));
+
+on("sheet:opened change:joat", function() {
+    getAttrs(["joat"], (values) => {
+        setAttrs({ "untrained_dm": Math.min(0, values["joat"] - 3) });
+    });
+});
+</script>
+
+<rolltemplate class="sheet-rolltemplate-rolls">
+  <div class="sheet-container">
+    <div class="sheet-header">
+      {{#title}}<div class="sheet-title">{{title}}</div>{{/title}}
+      {{#subtitle}}<div class="sheet-subtitle">{{subtitle}}</div>{{/subtitle}}
+    </div>
+    <div class="sheet-content">
+      {{#allprops() title subtitle desc baseroll}}
+      <div class="sheet-key">{{key}}</div>
+      <div class="sheet-value">{{value}}</div>
+      {{/allprops() title subtitle desc baseroll}}
+      {{#rollTotal() baseroll 2}}<div class="sheet-fail">Natural 2!</div>{{/rollTotal() baseroll 2}}
+      {{#rollTotal() baseroll 12}}<div class="sheet-crit">Natural 12!</div>{{/rollTotal() baseroll 12}}
+      {{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
+    </div>
+  </div>
+</rolltemplate>
