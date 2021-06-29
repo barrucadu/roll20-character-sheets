@@ -7,7 +7,25 @@ $ npm run compile:html
 $ npm run compile:css
 ```
 
-## Additions
+## Screenshots
+
+### Sheet
+
+!["Biography" Tab](screenshots/sheet-tab-biography.png?raw=true)
+
+!["Skills" Tab](screenshots/sheet-tab-skills.png?raw=true)
+
+!["Inventory" Tab](screenshots/sheet-tab-inventory.png?raw=true)
+
+### Rolls
+
+![Skill Roll](screenshots/roll-skill.png?raw=true)
+
+![Weapon Roll](screenshots/roll-weapon.png?raw=true)
+
+## Comparison with the standard Roll20 Traveller sheet
+
+### Additions
 
 From the *Traveller Companion*:
 
@@ -21,13 +39,13 @@ From the *Aliens of Charted Space*:
 - New attributes for Aslan PCs raised in Aslan society
 - New attributes for Vargr PCs raised in Vargr society
 
-## Changes
+### Changes
 
 - All the tabs have been rearranged
 - The history section has been expanded
 - There's a single list for skills
 
-## Omissions
+### Omissions
 
 - Psionics, as I don't use them in my games.
 - Study Periods, as I use the experience points system instead.
