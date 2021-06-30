@@ -71,7 +71,7 @@ div(class="sepitems")
       label(class="skill_level") Skill Level
       span(class="skill_level")
         input(type="number" min="0" value="0" name="attr_skill_level")
-        +roll("@{weapon_type} (TL @{weapon_tl})", "atk", "skill_level", "+@{characteristic_rollmod}", "{{damage=[[@{weapon_damage}]]}} {{desc=@{weapon_details}}}")
+        +roll("@{weapon_type}", "atk", "skill_level", "+@{characteristic_rollmod}", "{{damage=[[@{weapon_damage}]]}} {{desc=@{weapon_details}}}")
 
       label(class="weapon_details") Details
       input(type="text" name="attr_weapon_details" class="weapon_details")

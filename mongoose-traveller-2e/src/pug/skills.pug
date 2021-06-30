@@ -23,4 +23,4 @@ div(class="narrowitems")
       label(class="skill_level") Level
       span(class="skill_level")
         input(type="number" min="0" value="0" name="attr_skill_level")
-        +roll("@{skill_name} (@{skill_specialism})", "skill", "skill_level", "+@{characteristic_rollmod}")
+        +roll("@{skill_name}", "skill", "skill_level", "+@{characteristic_rollmod}", "{{subtitle=@{skill_specialism}}}")

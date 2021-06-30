@@ -3,7 +3,7 @@ mixin roll(title, short, attr, extra="", rest="")
     type="roll"
     class="roll"
     name=short
-    value=`&{template:rolls} {{title=${title}}} {{subtitle=@{character_name}}} {{roll=[[?{Roll|Normal, 2d6|Boon, 3d6kh2|Bane, 3d6kl2}+@{${attr}}${extra}+?{DM|0}]]}} ${rest}`
+    value=`&{template:rolls} {{title=${title}}} {{character_name=@{character_name}}} {{roll=[[?{Roll|Normal, 2d6|Boon, 3d6kh2|Bane, 3d6kl2}+@{${attr}}${extra}+?{DM|0}]]}} ${rest}`
   )
 
 input(type="hidden" name="attr_toggle_species" class="toggle--species" value="human")
