@@ -103,8 +103,16 @@ div(class="sepitems")
       label(class="term_advanced") Advanced?
       input(type="checkbox" name="attr_term_advanced" class="term_advanced")
 
-      label(class="term_mustering_out") Mustering out benefits
-      textarea(name="attr_term_mustering_out" class="term_mustering_out")
-
       label(class="term_details") Details
       textarea(name="attr_term_details" class="term_details")
+
+h2 Mustering Out Benefits
+
+div(class="narrowitems")
+  fieldset(class="repeating_benefits")
+    div(class="benefit")
+      label(class="benefit_career") Career
+      input(type="text" name="attr_benefit_career" class="benefit_career")
+
+      label(class="benefit_details") Details
+      textarea(name="attr_benefit_details" class="benefit_details")
