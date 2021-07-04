@@ -245,8 +245,6 @@
             "nameF     nameF    nameF   nameF      locationF typeF"
             "affinityL enmityL  powerL  influenceL .         ."
             "affinityF enmityF  powerF  influenceF .         ."
-            "specialL  specialL specialL specialL  specialL  specialL"
-            "specialF  specialF specialF specialF  specialF  specialF"
             "detailsL  detailsL detailsL detailsL  detailsL  detailsL"
             "detailsF  detailsF detailsF detailsF  detailsF  detailsF";
 
@@ -264,8 +262,6 @@
         input.npc_power { grid-area: powerF; }
         label.npc_influence { grid-area: influenceL; }
         input.npc_influence { grid-area: influenceF; }
-        label.npc_special_characteristics { grid-area: specialL; }
-        textarea.npc_special_characteristics { grid-area: specialF; }
         label.npc_details { grid-area: detailsL; }
         textarea.npc_details { grid-area: detailsF; }
     }
