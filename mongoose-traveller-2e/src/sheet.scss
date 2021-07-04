@@ -90,7 +90,10 @@
         color: $dice-color;
     }
 
-    .sepitems {
+    .sepitems,
+    #expand_events--yes:checked ~ * .expanditems--events,
+    #expand_npcs--yes:checked ~ * .expanditems--npcs,
+    #expand_terms--yes:checked ~ * .expanditems--terms {
         .repcontainer > .repitem {
             margin-top: 16px;
             padding-top: 8px;
@@ -103,10 +106,36 @@
             margin-top: 8px;
         }
     }
-    .narrowitems {
+    .narrowitems,
+    #expand_events--no:checked ~ * .expanditems--events,
+    #expand_npcs--no:checked ~ * .expanditems--npcs,
+    #expand_terms--no:checked ~ * .expanditems--terms {
         .repcontainer > .repitem:not(:first-child) label {
             display: none;
         }
+
+        .hide_narrow {
+            display: none;
+        }
+    }
+
+    .expand_button {
+        display: block;
+        text-align: right;
+        font-size: 12px;
+        margin-bottom: 8px;
+        text-transform: none;
+        text-decoration: underline;
+        color: $selected-text-color;
+    }
+
+    #expand_events--yes:checked ~ * .expand_button--events_yes,
+    #expand_events--no:checked ~ * .expand_button--events_no,
+    #expand_npcs--yes:checked ~ * .expand_button--npcs_yes,
+    #expand_npcs--no:checked ~ * .expand_button--npcs_no,
+    #expand_terms--yes:checked ~ * .expand_button--terms_yes,
+    #expand_terms--no:checked ~ * .expand_button--terms_no {
+        display: none;
     }
 
     .character-header {
@@ -269,7 +298,7 @@
     .term {
         @include grid;
 
-        grid-template-columns: max-content auto max-content max-content max-content;
+        grid-template-columns: max-content auto max-content 4em 4em;
         grid-template-areas:
             "ageL     careerL  rankL    survivedL advancedL"
             "ageF     careerF  rankF    survivedF advancedF"

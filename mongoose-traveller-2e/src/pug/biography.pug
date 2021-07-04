@@ -26,24 +26,32 @@ div(class="toggle toggle_culture--aslan_hierate")
 div(class="toggle toggle_culture--third_imperium toggle_culture--vargr_extents")
   h2 Recent Events
 
-div(class="sepitems")
-fieldset(class="repeating_events")
-  div(class="recent_event")
-    label(class="event_name") Name
-    input(type="text" name="attr_event_name" class="event_name")
+div(class="expand_buttons")
+  label(for="expand_events--yes" class="expand_button expand_button--events_yes") [expand event details]
+  label(for="expand_events--no" class="expand_button expand_button--events_no") [collapse event details]
 
-    label(class="event_date") Date
-    input(type="text" name="attr_event_date" class="event_date")
+div(class="expanditems expanditems--events")
+  fieldset(class="repeating_events")
+    div(class="recent_event")
+      label(class="event_name") Name
+      input(type="text" name="attr_event_name" class="event_name")
 
-    label(class="event_location") Location
-    input(type="text" name="attr_event_location" class="event_location")
+      label(class="event_date") Date
+      input(type="text" name="attr_event_date" class="event_date")
 
-    label(class="event_details") Details
-    textarea(name="attr_event_details" class="event_details")
+      label(class="event_location") Location
+      input(type="text" name="attr_event_location" class="event_location")
+
+      label(class="event_details hide_narrow") Details
+      textarea(name="attr_event_details" class="event_details hide_narrow")
 
 h2 Allies, Contacts, Enemies, and Rivals
 
-div(class="sepitems")
+div(class="expand_buttons")
+  label(for="expand_npcs--yes" class="expand_button expand_button--npcs_yes") [expand npc details]
+  label(for="expand_npcs--no" class="expand_button expand_button--npcs_no") [collapse npc details]
+
+div(class="expanditems expanditems--npcs")
   fieldset(class="repeating_npcs")
     div(class="npc")
       label(class="npc_name") Name
@@ -59,24 +67,28 @@ div(class="sepitems")
         option(value="rival") Rival
         option(value="enemy") Enemy
 
-      label(class="npc_affinity") Affinity
-      input(type="number" min="0" max="6" value="0" name="attr_npc_affinity" class="npc_affinity")
+      label(class="npc_affinity hide_narrow") Affinity
+      input(type="number" min="0" max="6" value="0" name="attr_npc_affinity" class="npc_affinity hide_narrow")
 
-      label(class="npc_enmity") Enmity
-      input(type="number" min="-6" max="0" value="0" name="attr_npc_enmity" class="npc_enmity")
+      label(class="npc_enmity hide_narrow") Enmity
+      input(type="number" min="-6" max="0" value="0" name="attr_npc_enmity" class="npc_enmity hide_narrow")
 
-      label(class="npc_power") Power
-      input(type="number" min="0" max="6" value="0" name="attr_npc_power" class="npc_power")
+      label(class="npc_power hide_narrow") Power
+      input(type="number" min="0" max="6" value="0" name="attr_npc_power" class="npc_power hide_narrow")
 
-      label(class="npc_influence") Influence
-      input(type="number" min="0" max="6" value="0" name="attr_npc_influence" class="npc_influence")
+      label(class="npc_influence hide_narrow") Influence
+      input(type="number" min="0" max="6" value="0" name="attr_npc_influence" class="npc_influence hide_narrow")
 
-      label(class="npc_details") Details
-      textarea(name="attr_npc_details" class="npc_details")
+      label(class="npc_details hide_narrow") Details
+      textarea(name="attr_npc_details" class="npc_details hide_narrow")
 
 h2 Terms
 
-div(class="sepitems")
+div(class="expand_buttons")
+  label(for="expand_terms--yes" class="expand_button expand_button--terms_yes") [expand term details]
+  label(for="expand_terms--no" class="expand_button expand_button--terms_no") [collapse term details]
+
+div(class="expanditems expanditems--terms")
   fieldset(class="repeating_terms")
     div(class="term")
       label(class="term_age") Age
@@ -100,8 +112,8 @@ div(class="sepitems")
       label(class="term_advanced") Advanced?
       input(type="checkbox" name="attr_term_advanced" class="term_advanced")
 
-      label(class="term_details") Details
-      textarea(name="attr_term_details" class="term_details")
+      label(class="term_details hide_narrow") Details
+      textarea(name="attr_term_details" class="term_details hide_narrow")
 
 h2 Mustering Out Benefits
 
