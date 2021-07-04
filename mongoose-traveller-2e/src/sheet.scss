@@ -283,9 +283,9 @@
         label.term_rank { grid-area: rankL; }
         span.term_rank { grid-area: rankF; }
         label.term_survived { grid-area: survivedL; }
-        checkbox.term_survived { grid-area: survivedF; }
+        input.term_survived { grid-area: survivedF; }
         label.term_advanced { grid-area: advancedL; }
-        checkbox.term_advanced { grid-area: advancedF; }
+        input.term_advanced { grid-area: advancedF; }
         label.term_details { grid-area: detailsL; }
         textarea.term_details { grid-area: detailsF; }
     }
