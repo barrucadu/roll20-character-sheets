@@ -12,5 +12,135 @@
       {{/allprops() character_name title subtitle desc}}
       {{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
     </div>
+    <div class="sheet-degree">
+      <div class="sheet-key">Simple</div>
+      <div class="sheet-value">
+        {{#rollLess() roll -3}}Exceptional Failure (&leq; -6){{/rollLess() roll -3}}
+        {{#rollTotal() roll -3}}Average Failure (-5){{/rollTotal() roll -3}}
+        {{#rollTotal() roll -2}}Average Failure (-4){{/rollTotal() roll -2}}
+        {{#rollTotal() roll -1}}Average Failure (-3){{/rollTotal() roll -1}}
+        {{#rollTotal() roll 0}}Average Failure (-2){{/rollTotal() roll 0}}
+        {{#rollTotal() roll 1}}Marginal Failure (-1){{/rollTotal() roll 1}}
+        {{#rollTotal() roll 2}}Marginal Success (0){{/rollTotal() roll 2}}
+        {{#rollTotal() roll 3}}Average Success (1){{/rollTotal() roll 3}}
+        {{#rollTotal() roll 4}}Average Success (2){{/rollTotal() roll 4}}
+        {{#rollTotal() roll 5}}Average Success (3){{/rollTotal() roll 5}}
+        {{#rollTotal() roll 6}}Average Success (4){{/rollTotal() roll 6}}
+        {{#rollTotal() roll 7}}Average Success (5){{/rollTotal() roll 7}}
+        {{#rollGreater() roll 7}}Exceptional Success (&geq; 6){{/rollGreater() roll 7}}
+      </div>
+      <div class="sheet-key">Easy</div>
+      <div class="sheet-value">
+        {{#rollLess() roll -1}}Exceptional Failure (&leq; -6){{/rollLess() roll -1}}
+        {{#rollTotal() roll -1}}Average Failure (-5){{/rollTotal() roll -1}}
+        {{#rollTotal() roll 0}}Average Failure (-4){{/rollTotal() roll 0}}
+        {{#rollTotal() roll 1}}Average Failure (-3){{/rollTotal() roll 1}}
+        {{#rollTotal() roll 2}}Average Failure (-2){{/rollTotal() roll 2}}
+        {{#rollTotal() roll 3}}Marginal Failure (-1){{/rollTotal() roll 3}}
+        {{#rollTotal() roll 4}}Marginal Success (0){{/rollTotal() roll 4}}
+        {{#rollTotal() roll 5}}Average Success (1){{/rollTotal() roll 5}}
+        {{#rollTotal() roll 6}}Average Success (2){{/rollTotal() roll 6}}
+        {{#rollTotal() roll 7}}Average Success (3){{/rollTotal() roll 7}}
+        {{#rollTotal() roll 8}}Average Success (4){{/rollTotal() roll 8}}
+        {{#rollTotal() roll 9}}Average Success (5){{/rollTotal() roll 9}}
+        {{#rollGreater() roll 9}}Exceptional Success (&geq; 6){{/rollGreater() roll 9}}
+      </div>
+      <div class="sheet-key">Routine</div>
+      <div class="sheet-value">
+        {{#rollLess() roll 1}}Exceptional Failure (&leq; -6){{/rollLess() roll 1}}
+        {{#rollTotal() roll 1}}Average Failure (-5){{/rollTotal() roll 1}}
+        {{#rollTotal() roll 2}}Average Failure (-4){{/rollTotal() roll 2}}
+        {{#rollTotal() roll 3}}Average Failure (-3){{/rollTotal() roll 3}}
+        {{#rollTotal() roll 4}}Average Failure (-2){{/rollTotal() roll 4}}
+        {{#rollTotal() roll 5}}Marginal Failure (-1){{/rollTotal() roll 5}}
+        {{#rollTotal() roll 6}}Marginal Success (0){{/rollTotal() roll 6}}
+        {{#rollTotal() roll 7}}Average Success (1){{/rollTotal() roll 7}}
+        {{#rollTotal() roll 8}}Average Success (2){{/rollTotal() roll 8}}
+        {{#rollTotal() roll 9}}Average Success (3){{/rollTotal() roll 9}}
+        {{#rollTotal() roll 10}}Average Success (4){{/rollTotal() roll 10}}
+        {{#rollTotal() roll 11}}Average Success (5){{/rollTotal() roll 11}}
+        {{#rollGreater() roll 11}}Exceptional Success (&geq; 6){{/rollGreater() roll 11}}
+      </div>
+      <div class="sheet-key">Average</div>
+      <div class="sheet-value">
+        {{#rollLess() roll 3}}Exceptional Failure (&leq; -6){{/rollLess() roll 3}}
+        {{#rollTotal() roll 3}}Average Failure (-5){{/rollTotal() roll 3}}
+        {{#rollTotal() roll 4}}Average Failure (-4){{/rollTotal() roll 4}}
+        {{#rollTotal() roll 5}}Average Failure (-3){{/rollTotal() roll 5}}
+        {{#rollTotal() roll 6}}Average Failure (-2){{/rollTotal() roll 6}}
+        {{#rollTotal() roll 7}}Marginal Failure (-1){{/rollTotal() roll 7}}
+        {{#rollTotal() roll 8}}Marginal Success (0){{/rollTotal() roll 8}}
+        {{#rollTotal() roll 9}}Average Success (1){{/rollTotal() roll 9}}
+        {{#rollTotal() roll 10}}Average Success (2){{/rollTotal() roll 10}}
+        {{#rollTotal() roll 11}}Average Success (3){{/rollTotal() roll 11}}
+        {{#rollTotal() roll 12}}Average Success (4){{/rollTotal() roll 12}}
+        {{#rollTotal() roll 13}}Average Success (5){{/rollTotal() roll 13}}
+        {{#rollGreater() roll 13}}Exceptional Success (&geq; 6){{/rollGreater() roll 13}}
+      </div>
+      <div class="sheet-key">Difficult</div>
+      <div class="sheet-value">
+        {{#rollLess() roll 5}}Exceptional Failure (&leq; -6){{/rollLess() roll 5}}
+        {{#rollTotal() roll 5}}Average Failure (-5){{/rollTotal() roll 5}}
+        {{#rollTotal() roll 6}}Average Failure (-4){{/rollTotal() roll 6}}
+        {{#rollTotal() roll 7}}Average Failure (-3){{/rollTotal() roll 7}}
+        {{#rollTotal() roll 8}}Average Failure (-2){{/rollTotal() roll 8}}
+        {{#rollTotal() roll 9}}Marginal Failure (-1){{/rollTotal() roll 9}}
+        {{#rollTotal() roll 10}}Marginal Success (0){{/rollTotal() roll 10}}
+        {{#rollTotal() roll 11}}Average Success (1){{/rollTotal() roll 11}}
+        {{#rollTotal() roll 12}}Average Success (2){{/rollTotal() roll 12}}
+        {{#rollTotal() roll 13}}Average Success (3){{/rollTotal() roll 13}}
+        {{#rollTotal() roll 14}}Average Success (4){{/rollTotal() roll 14}}
+        {{#rollTotal() roll 15}}Average Success (5){{/rollTotal() roll 15}}
+        {{#rollGreater() roll 15}}Exceptional Success (&geq; 6){{/rollGreater() roll 15}}
+      </div>
+      <div class="sheet-key">Very Difficult</div>
+      <div class="sheet-value">
+        {{#rollLess() roll 7}}Exceptional Failure (&leq; -6){{/rollLess() roll 7}}
+        {{#rollTotal() roll 7}}Average Failure (-5){{/rollTotal() roll 7}}
+        {{#rollTotal() roll 8}}Average Failure (-4){{/rollTotal() roll 8}}
+        {{#rollTotal() roll 9}}Average Failure (-3){{/rollTotal() roll 9}}
+        {{#rollTotal() roll 10}}Average Failure (-2){{/rollTotal() roll 10}}
+        {{#rollTotal() roll 11}}Marginal Failure (-1){{/rollTotal() roll 11}}
+        {{#rollTotal() roll 12}}Marginal Success (0){{/rollTotal() roll 12}}
+        {{#rollTotal() roll 13}}Average Success (1){{/rollTotal() roll 13}}
+        {{#rollTotal() roll 14}}Average Success (2){{/rollTotal() roll 14}}
+        {{#rollTotal() roll 15}}Average Success (3){{/rollTotal() roll 15}}
+        {{#rollTotal() roll 16}}Average Success (4){{/rollTotal() roll 16}}
+        {{#rollTotal() roll 17}}Average Success (5){{/rollTotal() roll 17}}
+        {{#rollGreater() roll 17}}Exceptional Success (&geq; 6){{/rollGreater() roll 17}}
+      </div>
+      <div class="sheet-key">Formidable</div>
+      <div class="sheet-value">
+        {{#rollLess() roll 9}}Exceptional Failure (&leq; -6){{/rollLess() roll 9}}
+        {{#rollTotal() roll 9}}Average Failure (-5){{/rollTotal() roll 9}}
+        {{#rollTotal() roll 10}}Average Failure (-4){{/rollTotal() roll 10}}
+        {{#rollTotal() roll 11}}Average Failure (-3){{/rollTotal() roll 11}}
+        {{#rollTotal() roll 12}}Average Failure (-2){{/rollTotal() roll 12}}
+        {{#rollTotal() roll 13}}Marginal Failure (-1){{/rollTotal() roll 13}}
+        {{#rollTotal() roll 14}}Marginal Success (0){{/rollTotal() roll 14}}
+        {{#rollTotal() roll 15}}Average Success (1){{/rollTotal() roll 15}}
+        {{#rollTotal() roll 16}}Average Success (2){{/rollTotal() roll 16}}
+        {{#rollTotal() roll 17}}Average Success (3){{/rollTotal() roll 17}}
+        {{#rollTotal() roll 18}}Average Success (4){{/rollTotal() roll 18}}
+        {{#rollTotal() roll 19}}Average Success (5){{/rollTotal() roll 19}}
+        {{#rollGreater() roll 19}}Exceptional Success (&geq; 6){{/rollGreater() roll 19}}
+      </div>
+      <div class="sheet-key">Impossible</div>
+      <div class="sheet-value">
+        {{#rollLess() roll 11}}Exceptional Failure (&leq; -6){{/rollLess() roll 11}}
+        {{#rollTotal() roll 11}}Average Failure (-5){{/rollTotal() roll 11}}
+        {{#rollTotal() roll 12}}Average Failure (-4){{/rollTotal() roll 12}}
+        {{#rollTotal() roll 13}}Average Failure (-3){{/rollTotal() roll 13}}
+        {{#rollTotal() roll 14}}Average Failure (-2){{/rollTotal() roll 14}}
+        {{#rollTotal() roll 15}}Marginal Failure (-1){{/rollTotal() roll 15}}
+        {{#rollTotal() roll 16}}Marginal Success (0){{/rollTotal() roll 16}}
+        {{#rollTotal() roll 17}}Average Success (1){{/rollTotal() roll 17}}
+        {{#rollTotal() roll 18}}Average Success (2){{/rollTotal() roll 18}}
+        {{#rollTotal() roll 19}}Average Success (3){{/rollTotal() roll 19}}
+        {{#rollTotal() roll 20}}Average Success (4){{/rollTotal() roll 20}}
+        {{#rollTotal() roll 21}}Average Success (5){{/rollTotal() roll 21}}
+        {{#rollGreater() roll 21}}Exceptional Success (&geq; 6){{/rollGreater() roll 21}}
+      </div>
+    </div>
   </div>
 </rolltemplate>

@@ -483,9 +483,8 @@
         line-height: revert;
     }
 
-    .sheet-header {
+    .sheet-header, .sheet-degree, .sheet-content {
         padding: 4px;
-        border-bottom: 1px solid #ccc;
     }
 
     .sheet-character_name {
@@ -508,6 +507,8 @@
         display: grid;
         grid-template-columns: auto auto;
         font-size: 16px;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
 
         .sheet-key {
             padding-right: 10px;
@@ -516,6 +517,19 @@
     }
     .sheet-content > div {
         padding: 8px;
+    }
+
+    .sheet-degree {
+        display: grid;
+        grid-template-columns: auto auto;
+
+        .sheet-key {
+            font-weight: bold;
+            text-align: right;
+        }
+    }
+    .sheet-degree > div {
+        padding: 4px;
     }
 
     .sheet-desc {
