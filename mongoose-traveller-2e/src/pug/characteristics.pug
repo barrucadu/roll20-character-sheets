@@ -2,9 +2,9 @@ mixin characteristic(name, short, extra_class="")
   div(class=`characteristic ${extra_class}`)
     h3 #{name}
     label(class="cur") Cur
-    input(type="number" min="0" value="6" name=`attr_characteristics_current_${short}` class="cur")
+    input(type="number" min="0" value="7" name=`attr_characteristics_current_${short}` class="cur")
     label(class="max") Max
-    input(type="number" min="0" value="6" name=`attr_characteristics_max_${short}` class="max")
+    input(type="number" min="0" value="7" name=`attr_characteristics_max_${short}` class="max")
     label(class="dm") DM
     span(class="dm")
       input(type="hidden" name=`attr_characteristics_dm_${short}`)
