@@ -8,6 +8,14 @@ div(class="skills_top")
     input(type="number" disabled="true" value="@{untrained_dm}" name="attr_untrained_dm_display")
     +roll("Untrained skill", "untrained", "untrained_dm", "+@{characteristic_rollmod}")
 
+  label(class="total_skills") Total Skill Levels
+  input(type="hidden" name="attr_total_skill_level")
+  input(type="number" disabled="true" value="@{total_skill_level}" name="attr_total_skill_level_display" class="total_skills")
+
+  label(class="max_skills") Max Skill Levels
+  input(type="hidden" name="attr_max_skill_level")
+  input(type="number" disabled="true" value="@{max_skill_level}" name="attr_max_skill_level_display" class="max_skills")
+
 div(class="narrowitems")
   fieldset(class="repeating_skills")
     div(class="skill")

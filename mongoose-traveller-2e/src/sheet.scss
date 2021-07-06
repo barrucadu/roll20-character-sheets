@@ -336,15 +336,19 @@
     .skills_top {
         @include grid;
 
-        grid-template-columns: max-content max-content auto;
+        grid-template-columns: max-content max-content max-content max-content auto;
         grid-template-areas:
-            "joatL untrainedL ."
-            "joatF untrainedF .";
+            "joatL untrainedL totalsL maxsL ."
+            "joatF untrainedF totalsF maxsF .";
 
         label.joat { grid-area: joatL; }
         input.joat { grid-area: joatF; }
         label.untrained_dm { grid-area: untrainedL; }
         span.untrained_dm { grid-area: untrainedF; }
+        label.total_skills { grid-area: totalsL; }
+        input.total_skills { grid-area: totalsF; width: 5em; }
+        label.max_skills { grid-area: maxsL; }
+        input.max_skills { grid-area: maxsF; width: 5em; }
     }
 
     .skill {

@@ -33,7 +33,7 @@ on("sheet:opened change:character_culture", function() {
 ["str", "dex", "end", "int", "edu", "soc", "ter", "cha", "lck"].forEach(characteristic => on(`sheet:opened change:characteristics_current_${characteristic}`, function() {
     getAttrs([`characteristics_current_${characteristic}`], (values) => {
         /* extended attribute DM formula from the Traveller Companion */
-        const val = values[`characteristics_current_${characteristic}`];
+        const val = parseInt(values[`characteristics_current_${characteristic}`]);
         if(val == 0) {
             setAttrs({
                 [`characteristics_dm_${characteristic}`]: -3
@@ -46,8 +46,30 @@ on("sheet:opened change:character_culture", function() {
     });
 }));
 
+/* Untrained DM = Jack of All Trades - 3 */
 on("sheet:opened change:joat", function() {
     getAttrs(["joat"], (values) => {
-        setAttrs({ "untrained_dm": Math.min(0, values["joat"] - 3) });
+        const cJOAT = parseInt(values["joat"]);
+        setAttrs({ "untrained_dm": Math.min(0, cJOAT - 3) });
+    });
+});
+
+/* Max Total Skill Level = 3 * (EDU + INT) */
+on("sheet:opened change:characteristics_current_edu change:characteristics_current_int", function() {
+    getAttrs(["characteristics_current_edu", "characteristics_current_int"], (values) => {
+        const cEDU = parseInt(values["characteristics_current_edu"]);
+        const cINT = parseInt(values["characteristics_current_int"]);
+        setAttrs({ "max_skill_level": 3 * (cEDU + cINT) });
+    });
+});
+
+/* Current Total Skill Level = sum of nonzero skills */
+on("sheet:opened change:repeating_skills:skill_level remove:repeating_skills", function() {
+    getSectionIDs("repeating_skills", (idArray) => {
+        const attrNames = idArray.reduce((acc, id) => [...acc, `repeating_skills_${id}_skill_level`], []);
+        getAttrs(attrNames, (values) => {
+            const totalSkillLevel = Object.values(values).reduce((acc, x) => acc + parseInt(x), 0);
+            setAttrs({ "total_skill_level": totalSkillLevel });
+        });
     });
 });
