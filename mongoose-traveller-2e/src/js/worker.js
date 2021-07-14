@@ -73,3 +73,18 @@ on("sheet:opened change:repeating_skills:skill_level remove:repeating_skills", f
         });
     });
 });
+
+/* Add "Unarmed" weapon when sheet is first opened */
+on("sheet:opened", function() {
+    getSectionIDs("repeating_weapons", (idArray) => {
+        if(idArray.length == 0) {
+            const newRowId = generateRowID();
+            setAttrs({
+                [`repeating_weapons_${newRowId}_weapon_type`]: "Unarmed",
+                [`repeating_weapons_${newRowId}_weapon_range`]: "Melee",
+                [`repeating_weapons_${newRowId}_weapon_damage`]: "1d6",
+                [`repeating_weapons_${newRowId}_weapon_skill_level`]: -3,
+            });
+        }
+    });
+});
