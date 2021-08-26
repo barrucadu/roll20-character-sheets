@@ -6,74 +6,9 @@ mixin roll(title, short, attr, extra="", rest="")
     value=`&{template:rolls} {{title=${title}}} {{character_name=@{character_name}}} {{roll=[[?{Roll|Normal, 2d6|Boon, 3d6kh2|Bane, 3d6kl2}+@{${attr}}${extra}+?{DM|0}]]}} ${rest}`
   )
 
-input(type="hidden" name="attr_toggle_species" class="toggle--species" value="human")
-input(type="hidden" name="attr_toggle_culture" class="toggle--culture" value="third_imperium")
-input(type="hidden" name="attr_characteristic_rollmod")
 
-input(style="display:none" type="radio" name="tab" id="tab--biography" checked)
-input(style="display:none" type="radio" name="tab" id="tab--skills")
-input(style="display:none" type="radio" name="tab" id="tab--inventory")
+include pug/character.pug
 
-input(style="display:none" type="radio" name="expand--events" id="expand_events--yes")
-input(style="display:none" type="radio" name="expand--events" id="expand_events--no" checked)
-
-input(style="display:none" type="radio" name="expand--npcs" id="expand_npcs--yes")
-input(style="display:none" type="radio" name="expand--npcs" id="expand_npcs--no" checked)
-
-input(style="display:none" type="radio" name="expand--terms" id="expand_terms--yes")
-input(style="display:none" type="radio" name="expand--terms" id="expand_terms--no" checked)
-
-div(class="character-header")
-  input(type="text" name="attr_character_name" class="character_name")
-
-  label(class="character_age") Age
-  input(type="number" min="14" value="18" name="attr_character_age" class="character_age")
-
-  label(class="character_rads") Rads
-  input(type="number" min="0" value="0" name="attr_character_rads" class="character_rads")
-
-  label(class="character_gender") Gender
-  input(type="text" name="attr_character_gender" class="character_gender")
-
-  label(class="character_homeworld") Homeworld
-  input(type="text" name="attr_character_homeworld" class="character_homeworld")
-
-  label(class="character_species") Species
-  select(name="attr_character_species" class="character_species")
-    option(value="human" selected) Human
-    option(value="aslan") Aslan
-    option(value="vargr") Vargr
-
-  label(class="character_culture") Culture
-  select(name="attr_character_culture" class="character_culture")
-    option(value="third_imperium" selected) Third Imperium
-    option(value="aslan_hierate") Aslan Hierate
-    option(value="vargr_extents") Vargr Extents
-
-span(class="toggle toggle_culture--aslan_hierate")
-  span(class="incompatibility toggle toggle_species--human toggle_species--vargr") Only Aslan can be raised in the culture of the Aslan Hierate.
-
-span(class="toggle toggle_culture--vargr_extents")
-  span(class="incompatibility toggle toggle_species--human toggle_species--aslan") Only Vargr can be raised in the culture of the Vargr Extents.
-
-div(class="columns")
-  div(class="column column--characteristics")
-    include pug/characteristics.pug
-
-  div(class="column")
-    div(class="tab_buttons")
-      label(for="tab--biography" class="tab_button--biography") Biography
-      label(for="tab--skills" class="tab_button--skills") Skills
-      label(for="tab--inventory" class="tab_button--inventory") Inventory
-
-    div(class="tab tab--biography")
-      include pug/biography.pug
-
-    div(class="tab tab--skills")
-      include pug/skills.pug
-
-    div(class="tab tab--inventory")
-      include pug/inventory.pug
 
 script(type="text/worker")
   include js/worker.js
