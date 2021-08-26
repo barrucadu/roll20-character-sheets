@@ -9,13 +9,17 @@ $ npm run compile:css
 
 ## Screenshots
 
-### Sheet
+### Sheet (Character)
 
 !["Biography" Tab](screenshots/sheet-tab-biography.png?raw=true)
 
 !["Skills" Tab](screenshots/sheet-tab-skills.png?raw=true)
 
 !["Inventory" Tab](screenshots/sheet-tab-inventory.png?raw=true)
+
+### Sheet (Ship)
+
+![Ship sheet](screenshots/sheet-ship.png?raw=true)
 
 ### Rolls
 
@@ -44,9 +48,10 @@ From the *Aliens of Charted Space*:
 - All the tabs have been rearranged
 - The history section has been expanded
 - There's a single list for skills
+- Ship sheet is pretty basic
 
 ### Omissions
 
 - Psionics, as I don't use them in my games.
 - Study Periods, as I use the experience points system instead.
-- NPC and Ship sheets, this is just a PC sheet.
+- NPC sheet

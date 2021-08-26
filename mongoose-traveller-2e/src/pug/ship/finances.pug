@@ -1,0 +1,23 @@
+h2 Finances
+
+div(class="ship-finance")
+  label(class="ship_finance_purchase") Purchase Cost
+  input(type="number" min="0" value="0" name="attr_ship_finance_purchase" class="ship_finance_purchase")
+
+  label(class="ship_finance_principal") Mortgage Principal
+  input(type="number" min="0" value="0" name="attr_ship_finance_principal" class="ship_finance_principal")
+
+  label(class="ship_finance_mortgage") Monthly Mortgage Cost
+  input(type="number" min="0" value="0" name="attr_ship_finance_mortgage" class="ship_finance_mortgage")
+
+  label(class="ship_finance_ship") Monthly Maintenance Cost
+  input(type="number" min="0" value="0" name="attr_ship_finance_maintenance" class="ship_finance_maintenance")
+
+div(class="narrowitems")
+  fieldset(class="repeating_misc_finances")
+    div(class="misc-ship-finance")
+      label(class="misc_ship_finance_item") Item
+      input(type="text" name="attr_misc_ship_finance_item" class="misc_ship_finance_item")
+
+      label(class="misc_ship_finance_cost") Cost
+      input(type="number" min="0" value="0" name="attr_misc_ship_finance_cost" class="misc_ship_finance_cost")

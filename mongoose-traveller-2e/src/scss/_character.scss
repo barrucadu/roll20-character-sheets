@@ -25,6 +25,8 @@ $-incompatibility-text-color: #ff0000;
 }
 
 @mixin styles {
+    .toggle--mode[value="character"] ~ .toggle_mode--character,
+    .toggle--mode[value="character"] ~ * .toggle_mode--character,
     .toggle--mode[value="ship"] ~ .toggle_mode--ship,
     .toggle--mode[value="ship"] ~ * .toggle_mode--ship,
     .toggle--species[value="human"] ~ .toggle_species--human,
@@ -65,7 +67,7 @@ $-incompatibility-text-color: #ff0000;
             "genderF homeworldF speciesF cultureF cultureF cultureF";
 
         label.character_name { grid-area: nameL; }
-        input.character_name { grid-area: nameF; font-size: 20px; }
+        input.character_name { grid-area: nameF; }
         label.character_age { grid-area: ageL; }
         input.character_age { grid-area: ageF; }
         label.character_rads { grid-area: radsL; }

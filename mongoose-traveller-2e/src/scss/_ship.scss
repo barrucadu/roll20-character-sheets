@@ -1,0 +1,109 @@
+@mixin -grid {
+    display: grid;
+    padding-right: 8px;
+    grid-column-gap: 8px;
+}
+
+
+@mixin styles {
+    .toggle--mode[value="ship"] ~ .toggle_mode--ship,
+    .toggle--mode[value="ship"] ~ * .toggle_mode--ship
+    {
+        display: revert;
+    }
+
+    .ship-header {
+        @include -grid;
+
+        grid-template-columns: auto auto auto max-content max-content;
+        grid-template-areas:
+            "nameF  nameF  nameF  modelL tlL"
+            "nameF  nameF  nameF  modelF tlF"
+            "notesL notesL .      .      ."
+            "notesF notesF notesF notesF notesF";
+
+        input.character_name { grid-area: nameF; }
+        label.ship_model { grid-area: modelL; }
+        input.ship_model { grid-area: modelF; }
+        label.ship_tl { grid-area: tlL; }
+        input.ship_tl { grid-area: tlF; }
+        label.ship_notes { grid-area: notesL; }
+        textarea.ship_notes { grid-area: notesF; width: 100%; height: 64px; };
+    }
+
+    .crew {
+        @include -grid;
+
+        grid-template-columns: max-content auto max-content;
+        grid-template-areas:
+            "roleL nameL salaryL"
+            "roleF nameF salaryF";
+
+        label.crew_role { grid-area: roleL; }
+        select.crew_role { grid-area: roleF; }
+        label.crew_name { grid-area: nameL; }
+        input.crew_name { grid-area: nameF; }
+        label.crew_salary { grid-area: salaryL; }
+        input.crew_salary { grid-area: salaryF; }
+
+        input[type="number"] {
+            width: 100%;
+        }
+    }
+
+    .ship-finance {
+        @include -grid;
+
+        grid-template-columns: auto auto auto auto;
+        grid-template-areas:
+            "purchaseL principalL mortgageL maintenanceL"
+            "purchaseF principalF mortgageF maintenanceF";
+
+        label.ship_finance_purchase { grid-area: purchaseL; }
+        input.ship_finance_purchase { grid-area: purchaseF; }
+        label.ship_finance_principal { grid-area: principalL; }
+        input.ship_finance_principal { grid-area: principalF; }
+        label.ship_finance_mortgage { grid-area: mortgageL; }
+        input.ship_finance_mortgage { grid-area: mortgageF; }
+        label.ship_finance_maintenance { grid-area: maintenanceL; }
+        input.ship_finance_maintenance { grid-area: maintenanceF; }
+
+        input[type="number"] {
+            width: 100%;
+        }
+    }
+
+    .misc-ship-finance {
+        @include -grid;
+
+        grid-template-columns: auto max-content;
+        grid-template-areas:
+            "itemL costL"
+            "itemF costF";
+
+        label.misc_ship_finance_item { grid-area: itemL; }
+        input.misc_ship_finance_item { grid-area: itemF; }
+        label.misc_ship_finance_cost { grid-area: costL; }
+        input.misc_ship_finance_cost { grid-area: costF; }
+
+        input[type="number"] {
+            width: 100%;
+        }
+    }
+
+    .cargo {
+        @include -grid;
+
+        grid-template-columns: auto max-content max-content;
+        grid-template-areas:
+            "itemL quantityL tonnageL"
+            "itemF quantityF tonnageF";
+
+        label.cargo_item { grid-area: itemL; }
+        input.cargo_item { grid-area: itemF; }
+        label.cargo_quantity { grid-area: quantityL; }
+        input.cargo_quantity { grid-area: quantityF; width: 64px; }
+        label.cargo_tonnage { grid-area: tonnageL; }
+        input.cargo_tonnage { grid-area: tonnageF; width: 64px; }
+    }
+}

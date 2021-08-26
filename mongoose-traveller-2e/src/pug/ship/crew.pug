@@ -1,0 +1,23 @@
+h2 Crew
+
+div(class="narrowitems")
+  fieldset(class="repeating_crew")
+    div(class="crew")
+      label(class="crew_role") Role
+      select(name="attr_crew_role" class="crew_role")
+        option(value="captain") Captain
+        option(value="pilot") Pilot
+        option(value="astrogator") Astrogator
+        option(value="sensors") Sensor Operator
+        option(value="engineer") Engineer
+        option(value="steward") Steward
+        option(value="medic") Medic
+        option(value="gunner") Gunner
+        option(value="marine") Marine
+        option(value="other") Other
+
+      label(class="crew_name") Name
+      input(type="text" name="attr_crew_name" class="crew_name")
+
+      label(class="crew_salary") Salary
+      input(type="number" min="0" value="0" name="attr_crew_salary" class="crew_salary")

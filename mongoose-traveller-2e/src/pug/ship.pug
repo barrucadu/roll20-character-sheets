@@ -1,0 +1,17 @@
+div(class="ship-header")
+  input(type="text" name="attr_character_name" class="character_name")
+
+  label(class="ship_model") Model
+  input(type="text" name="attr_ship_model" class="ship_model")
+
+  label(class="ship_tl") TL
+  input(type="number" min="0" max="15" value="12" name="attr_ship_tl" class="ship_tl")
+
+  label(class="ship_notes") Notes
+  textarea(name="attr_ship_notes" class="ship_notes")
+
+include ship/crew.pug
+
+include ship/finances.pug
+
+include ship/cargo.pug

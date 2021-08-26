@@ -6,9 +6,15 @@ mixin roll(title, short, attr, extra="", rest="")
     value=`&{template:rolls} {{title=${title}}} {{character_name=@{character_name}}} {{roll=[[?{Roll|Normal, 2d6|Boon, 3d6kh2|Bane, 3d6kl2}+@{${attr}}${extra}+?{DM|0}]]}} ${rest}`
   )
 
+//- Edit the attribute directly in the character sheet to change to
+//"ship" mode.
+input(type="hidden" name="attr_toggle_mode" class="toggle--mode" value="character")
 
-include pug/character.pug
+div(class="toggle toggle_mode--character")
+  include pug/character.pug
 
+div(class="toggle toggle_mode--ship")
+  include pug/ship.pug
 
 script(type="text/worker")
   include js/worker.js
