@@ -53,5 +53,5 @@ From the *Aliens of Charted Space*:
 ### Omissions
 
 - Psionics, as I don't use them in my games.
-- Study Periods, as I use the experience points system instead.
+- Study Periods, you can either use the experience point system from the Traveller Companion, or note down one week of study as one EXP (and then roll to level up at 8, 16, etc points)
 - NPC sheet
