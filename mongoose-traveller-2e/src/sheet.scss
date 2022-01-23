@@ -24,6 +24,11 @@
         display: none;
     }
 
+    .tab {
+        display: none;
+        padding-left: 16px;
+    }
+
     h2 {
         font-weight: bold;
         text-transform: uppercase;
@@ -110,6 +115,15 @@
         display: none;
     }
 
+    .columns {
+        display: grid;
+        grid-template-columns: max-content auto;
+        margin-top: 32px;
+    }
+    .column--first {
+        border-rsght: 1px solid $border-color;
+    }
+
     @include character.configure(
         $border-color: $border-color,
         $selected-text-color: $selected-text-color,
@@ -118,6 +132,11 @@
     );
     @include character.styles;
 
+    @include ship.configure(
+        $border-color: $border-color,
+        $selected-text-color: $selected-text-color,
+        $selected-border-color: $selected-border-color,
+    );
     @include ship.styles;
 }
 

@@ -1,15 +1,42 @@
+$-border-color: #ccc;
+$-selected-text-color: #730b0b;
+$-selected-border-color: #730b0b;
+
 @mixin -grid {
     display: grid;
     padding-right: 8px;
     grid-column-gap: 8px;
 }
 
+@mixin configure($border-color: null, $selected-text-color: null, $selected-border-color: null) {
+    @if $border-color {
+        $-border-color: $border-color !global;
+    }
+    @if $selected-text-color {
+        $-selected-text-color: $selected-text-color !global;
+    }
+    @if $selected-border-color {
+        $-selected-border-color: $selected-border-color !global;
+    }
+}
 
 @mixin styles {
     .toggle--mode[value="ship"] ~ .toggle_mode--ship,
     .toggle--mode[value="ship"] ~ * .toggle_mode--ship
     {
         display: revert;
+    }
+
+    #ship-tab--roster:checked ~ * .ship-tab--roster,
+    #ship-tab--details:checked ~ * .ship-tab--details
+    {
+        display: block;
+    }
+    #ship-tab--roster:checked ~ * label[for="ship-tab--roster"],
+    #ship-tab--details:checked ~ * label[for="ship-tab--details"]
+    {
+        color: $-selected-text-color;
+        border-bottom: 5px solid $-selected-border-color;
     }
 
     .ship-header {
@@ -29,6 +56,176 @@
         input.ship_tl { grid-area: tlF; }
         label.ship_notes { grid-area: notesL; }
         textarea.ship_notes { grid-area: notesF; width: 100%; height: 64px; };
+    }
+
+    .ship-characteristic {
+        @include -grid;
+
+        grid-template-columns: auto max-content;
+        grid-template-areas:
+            "name name"
+            "curL maxL"
+            "curF maxF";
+        grid-column-gap: 4px;
+        margin-top: 16px;
+        padding-top: 8px;
+        padding-right: 8px;
+
+        h3 {
+            grid-area: name;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 9px;
+            line-height: 12px;
+        }
+        label.cur { grid-area: curL; }
+        input.cur { grid-area: curF; }
+        label.max { grid-area: maxL; }
+        input.max { grid-area: maxF; }
+    }
+
+    .ship-characteristic--first {
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .ship-properties {
+        border-top: 1px solid $-border-color;
+        margin-top: 16px;
+        padding-top: 8px;
+        padding-right: 8px;
+
+        h3 {
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 9px;
+            line-height: 12px;
+        }
+    }
+
+    .ship-properties-entries {
+        @include -grid;
+
+        grid-column-gap: 4px;
+        grid-template-columns: auto max-content;
+
+        input[type="number"] {
+            width: 5em;
+        }
+    }
+
+    .ship-critical-hits {
+        border-top: 1px solid $-border-color;
+        margin-top: 16px;
+        padding-top: 8px;
+        padding-right: 8px;
+
+        h3 {
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 9px;
+            line-height: 12px;
+        }
+    }
+
+    .ship-critical-hit-entries {
+        @include -grid;
+
+        grid-column-gap: 4px;
+        grid-template-columns: auto max-content;
+
+        input[type="number"] {
+            width: 5em;
+        }
+    }
+
+    .ship-power {
+        @include -grid;
+
+        grid-template-columns: auto auto auto auto;
+        grid-template-areas:
+            "systemsL mdriveL jdriveL sensorsL weaponsL"
+            "systemsF mdriveF jdriveF sensorsF weaponsF";
+
+        label.ship_power_systems { grid-area: systemsL; }
+        input.ship_power_systems { grid-area: systemsF; }
+        label.ship_power_mdrive { grid-area: mdriveL; }
+        input.ship_power_mdrive { grid-area: mdriveF; }
+        label.ship_power_jdrive { grid-area: jdriveL; }
+        input.ship_power_jdrive { grid-area: jdriveF; }
+        label.ship_power_sensors { grid-area: sensorsL; }
+        input.ship_power_sensors { grid-area: sensorsF; }
+        label.ship_power_weapons { grid-area: weaponsL; }
+        input.ship_power_weapons { grid-area: weaponsF; }
+
+        input[type="number"] {
+            width: 100%;
+        }
+    }
+
+    .misc-ship-power {
+        @include -grid;
+
+        grid-template-columns: auto max-content;
+        grid-template-areas:
+            "itemL requirementL"
+            "itemF requirementF";
+
+        label.misc_ship_power_item { grid-area: itemL; }
+        input.misc_ship_power_item { grid-area: itemF; }
+        label.misc_ship_power_requirement { grid-area: requirementL; }
+        input.misc_ship_power_requirement { grid-area: requirementF; }
+
+        input[type="number"] {
+            width: 100%;
+        }
+    }
+
+    .ship-weapon {
+        @include -grid;
+
+        grid-template-columns: auto auto max-content auto auto max-content auto;
+        grid-template-areas:
+            "typeL    mountL   tlL      rangeL   damageL  ammunitionL"
+            "typeF    mountF   tlF      rangeF   damageF  ammunitionF"
+            "detailsL detailsL detailsL detailsL detailsL detailsL"
+            "detailsF detailsF detailsF detailsF detailsF detailsF";
+
+        label.ship_weapon_type { grid-area: typeL; }
+        input.ship_weapon_type { grid-area: typeF; }
+        label.ship_weapon_mount { grid-area: mountL; }
+        input.ship_weapon_mount { grid-area: mountF; }
+        label.ship_weapon_tl { grid-area: tlL; }
+        input.ship_weapon_tl { grid-area: tlF; }
+        label.ship_weapon_range { grid-area: rangeL; }
+        input.ship_weapon_range { grid-area: rangeF; }
+        label.ship_weapon_damage { grid-area: damageL; }
+        input.ship_weapon_damage { grid-area: damageF; }
+        label.ship_weapon_ammunition { grid-area: ammunitionL; }
+        input.ship_weapon_ammunition { grid-area: ammunitionF; }
+        label.ship_weapon_details { grid-area: detailsL; }
+        input.ship_weapon_details { grid-area: detailsF; }
+    }
+
+    .ship-component {
+        @include -grid;
+
+        grid-template-columns: min-content auto min-content min-content;
+        grid-template-areas:
+            "typeL detailsL tonsL costL"
+            "typeF detailsF tonsF costF";
+
+        label.ship_component_type { grid-area: typeL; }
+        input.ship_component_type { grid-area: typeF; width: 10em; }
+        label.ship_component_details { grid-area: detailsL; }
+        input.ship_component_details { grid-area: detailsF; }
+        label.ship_component_tons { grid-area: tonsL; }
+        input.ship_component_tons { grid-area: tonsF; width: 5em; }
+        label.ship_component_cost { grid-area: costL; }
+        input.ship_component_cost { grid-area: costF; width: 5em; }
     }
 
     .crew {

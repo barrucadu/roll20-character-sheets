@@ -1,0 +1,26 @@
+h2 Power Requirements
+
+div(class="ship-power")
+  label(class="ship_power_systems") Basic Ship Systems
+  input(type="number" min="0" value="0" name="attr_ship_power_systems" class="ship_power_systems")
+
+  label(class="ship_power_mdrive") M-Drive
+  input(type="number" min="0" value="0" name="attr_ship_power_mdrive" class="ship_power_mdrive")
+
+  label(class="ship_power_jdrive") J-Drive
+  input(type="number" min="0" value="0" name="attr_ship_power_jdrive" class="ship_power_jdrive")
+
+  label(class="ship_power_sensors") Sensors
+  input(type="number" min="0" value="0" name="attr_ship_power_sensors" class="ship_power_sensors")
+
+  label(class="ship_power_weapons") Weapons
+  input(type="number" min="0" value="0" name="attr_ship_power_weapons" class="ship_power_weapons")
+
+div(class="narrowitems")
+  fieldset(class="repeating_misc-ship-power")
+    div(class="misc-ship-power")
+      label(class="misc_ship_power_item") Item
+      input(type="text" name="attr_misc_ship_power_item" class="misc_ship_power_item")
+
+      label(class="misc_ship_power_requirement") Requirement
+      input(type="number" min="0" value="0" name="attr_misc_ship_power_requirement" class="misc_ship_power_requirement")

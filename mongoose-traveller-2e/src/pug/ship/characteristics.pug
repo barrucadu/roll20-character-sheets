@@ -1,0 +1,41 @@
+mixin characteristic(name, short, extra_class="")
+  div(class=`ship-characteristic ${extra_class}`)
+    h3 #{name}
+    label(class="cur") Cur
+    input(type="number" min="0" value="0" name=`attr_ship_characteristics_current_${short}` class="cur")
+    label(class="max") Max
+    input(type="number" min="0" value="0" name=`attr_ship_characteristics_max_${short}` class="max")
+
+mixin property(name, short)
+  label(class="cur") #{name}
+  input(type="number" min="0" value="0" name=`attr_ship_property_current_${short}` class="cur")
+
+mixin critical_hit(name, short)
+  label(class="cur") #{name}
+  input(type="number" min="0" max="5" value="0" name=`attr_ship_critical_hit_current_${short}` class="cur")
+
++characteristic("Hull Points", "hp", "ship-characteristic--first")
+
+div(class=`ship-properties`)
+  h3 Properties
+
+  div(class=`ship-properties-entries`)
+    +property("Armour", "armour")
+    +property("Power", "power")
+    +property("Thrust", "thrust")
+
+div(class=`ship-critical-hits`)
+  h3 Critical Hits
+
+  div(class=`ship-critical-hit-entries`)
+    +critical_hit("Armour", "armour")
+    +critical_hit("Bridge", "bridge")
+    +critical_hit("Cargo", "cargo")
+    +critical_hit("Crew", "crew")
+    +critical_hit("Fuel", "fuel")
+    +critical_hit("Hull", "hull")
+    +critical_hit("J-Drive", "jdrive")
+    +critical_hit("M-Drive", "mdrive")
+    +critical_hit("Power Plant", "powerplant")
+    +critical_hit("Sensors", "sensors")
+    +critical_hit("Weapons", "weapons")

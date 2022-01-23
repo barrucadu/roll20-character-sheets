@@ -45,11 +45,6 @@ $-incompatibility-text-color: #ff0000;
         display: revert;
     }
 
-    .tab {
-        display: none;
-        padding-left: 16px;
-    }
-
     #tab--biography:checked ~ * .tab--biography,
     #tab--skills:checked ~ * .tab--skills,
     #tab--inventory:checked ~ * .tab--inventory
@@ -80,15 +75,6 @@ $-incompatibility-text-color: #ff0000;
         select.character_species { grid-area: speciesF; }
         label.character_culture { grid-area: cultureL; }
         select.character_culture { grid-area: cultureF; }
-    }
-
-    .columns {
-        display: grid;
-        grid-template-columns: max-content auto;
-        margin-top: 32px;
-    }
-    .column--characteristics {
-        border-right: 1px solid $-border-color;
     }
 
     .characteristic {

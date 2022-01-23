@@ -1,3 +1,6 @@
+input(style="display:none" type="radio" name="ship-tab" id="ship-tab--roster" checked)
+input(style="display:none" type="radio" name="ship-tab" id="ship-tab--details")
+
 div(class="ship-header")
   input(type="text" name="attr_character_name" class="character_name")
 
@@ -10,8 +13,21 @@ div(class="ship-header")
   label(class="ship_notes") Notes
   textarea(name="attr_ship_notes" class="ship_notes")
 
-include ship/crew.pug
+div(class="columns")
+  div(class="column column--first")
+    include ship/characteristics.pug
 
-include ship/finances.pug
+  div(class="column")
+    div(class="tab_buttons")
+      label(for="ship-tab--roster" class="ship-tab_button--roster") Roster
+      label(for="ship-tab--details" class="ship-tab_button--details") Details
 
-include ship/cargo.pug
+    div(class="tab ship-tab--roster")
+      include ship/finances.pug
+      include ship/crew.pug
+      include ship/cargo.pug
+
+    div(class="tab ship-tab--details")
+      include ship/power.pug
+      include ship/weapons.pug
+      include ship/components.pug

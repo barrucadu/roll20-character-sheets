@@ -19,7 +19,9 @@ $ npm run compile:css
 
 ### Sheet (Ship)
 
-![Ship sheet](screenshots/sheet-ship.png?raw=true)
+!["Roster" Tab](screenshots/sheet-ship-tab-roster.png?raw=true)
+
+!["Details" Tab](screenshots/sheet-ship-tab-details.png?raw=true)
 
 ### Rolls
 
@@ -27,30 +29,7 @@ $ npm run compile:css
 
 ![Weapon Roll](screenshots/roll-weapon.png?raw=true)
 
-## Comparison with the standard Roll20 Traveller sheet
-
-### Additions
-
-From the *Traveller Companion*:
-
-- The Luck attribute
-- Experience points
-- Affinity, enmity, power, influence, and special characteristics for allies, contacts, rivals, and enemies
-- Characteristic DMs for high attributes
-
-From the *Aliens of Charted Space*:
-
-- New attributes for Aslan PCs raised in Aslan society
-- New attributes for Vargr PCs raised in Vargr society
-
-### Changes
-
-- All the tabs have been rearranged
-- The history section has been expanded
-- There's a single list for skills
-- Ship sheet is pretty basic
-
-### Omissions
+## Omissions
 
 - Psionics, as I don't use them in my games.
 - Study Periods, you can either use the experience point system from the Traveller Companion, or note down one week of study as one EXP (and then roll to level up at 8, 16, etc points)
